@@ -9,9 +9,9 @@ interface CategoryCardProps {
 
 const CategoryCard = ({ category }: CategoryCardProps) => {
   return (
-    <Card className="flex flex-col items-center justify-center rounded-none transition-all hover:shadow-lg">
-      <Image src={"/sample.png"} alt={category.name} height={100} width={100} />
-      <p>{category.name}</p>
+    <Card className="my-1 flex flex-col items-center justify-center gap-3 rounded-none p-5 transition-all hover:scale-105 hover:cursor-pointer hover:shadow-lg">
+      <Image src={"/sample.png"} alt={category.name} height={70} width={70} />
+      <p className="text-sm font-semibold text-slate-500">{category.name}</p>
     </Card>
   );
 };
