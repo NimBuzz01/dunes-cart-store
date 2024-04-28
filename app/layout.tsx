@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import ModalPreview from "@/providers/modalPreview";
 import ToastProvider from "@/providers/toastProvider";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/navbar/NavBar";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-        <main className="container">
+        <main className="container min-h-screen">
           <ModalPreview />
           <ToastProvider />
           <NavBar />

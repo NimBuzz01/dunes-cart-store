@@ -4,7 +4,7 @@ import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
 
 interface CartProps {
-  items?: IProduct[];
+  items: IProduct[];
   addItem: (data: IProduct) => void;
   removeItem: (id: string) => void;
   removeAllItems: () => void;
