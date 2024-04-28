@@ -1,11 +1,11 @@
 "use client";
 
 import { MouseEventHandler } from "react";
-import { IProduct } from "@/common.types";
+import { IProduct } from "@/lib/types";
 import Image from "next/image";
-import IconButton from "../ui/IconButton";
+import IconButton from "../IconButton";
 import { Expand, ShoppingCart } from "lucide-react";
-import Currency from "../ui/Currency";
+import Currency from "../Currency";
 import { useRouter } from "next/navigation";
 import usePreviewModal from "@/hooks/useModal";
 import useCart from "@/hooks/useCart";
@@ -33,17 +33,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div
       onClick={handleClick}
-      className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4"
+      className="group cursor-pointer space-y-4 rounded-xl border bg-white p-3"
     >
-      <div className="aspect-square rounded-xl relative bg-gray-100">
+      <div className="relative aspect-square rounded-xl">
         <Image
           alt="image"
           src={product?.images?.[0]?.url}
           fill
-          className="aspect-square object-cover rounded-md"
+          className="aspect-square overflow-hidden rounded-md object-cover transition-all group-hover:scale-95"
         />
-        <div className="opacity-0 hidden lg:block group-hover:opacity-100 transition absolute w-full px-6 bottom-5">
-          <div className="flex gap-x-6 justify-center">
+        <div className="absolute bottom-5 hidden w-full px-6 opacity-0 transition group-hover:opacity-100 lg:block">
+          <div className="flex justify-center gap-x-6">
             <IconButton
               onClick={onPreview}
               icon={<Expand size={20} className="text-gray-500" />}

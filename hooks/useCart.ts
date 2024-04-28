@@ -1,4 +1,4 @@
-import { IProduct } from "@/common.types";
+import { IProduct } from "@/lib/types";
 import toast from "react-hot-toast";
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
@@ -33,8 +33,8 @@ const useCart = create(
     {
       name: "cart-storage",
       storage: createJSONStorage(() => localStorage),
-    }
-  )
+    },
+  ),
 );
 
 export default useCart;

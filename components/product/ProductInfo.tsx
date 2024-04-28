@@ -1,11 +1,11 @@
 "use client";
 
-import { IProduct } from "@/common.types";
-import Currency from "../ui/Currency";
-import Button from "../ui/button";
+import { IProduct } from "@/lib/types";
+import Currency from "../Currency";
 import { ShoppingCart } from "lucide-react";
 import useCart from "@/hooks/useCart";
 import usePreviewModal from "@/hooks/useModal";
+import { Button } from "../ui/button";
 
 interface ProductInfoProps {
   data: IProduct;
@@ -16,9 +16,9 @@ const ProductInfo = ({ data }: ProductInfoProps) => {
   const previewModal = usePreviewModal();
   return (
     <div>
-      <p className="font-bold text-gray-900 text-3xl">{data?.name}</p>
-      <div className="flex items-end justify-between mt-3">
-        <p className="text-gray-900 text-2xl">
+      <p className="text-3xl font-bold text-gray-900">{data?.name}</p>
+      <div className="mt-3 flex items-end justify-between">
+        <p className="text-2xl text-gray-900">
           <Currency value={data?.price} />
         </p>
       </div>

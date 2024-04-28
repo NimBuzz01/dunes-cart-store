@@ -1,4 +1,4 @@
-import { ICategory, ICollection, IProduct, ISize } from "@/common.types";
+import { ICategory, ICollection, IProduct, ISize } from "@/lib/types";
 import qs from "query-string";
 
 export const url = `${process.env.NEXT_PUBLIC_API_URL}`;

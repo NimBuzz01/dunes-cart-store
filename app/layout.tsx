@@ -1,14 +1,14 @@
-import Footer from "@/components/Footer/Footer";
+import Footer from "@/components/Footer";
 import "./globals.css";
 import type { Metadata } from "next";
-import { Urbanist } from "next/font/google";
-import Navbar from "@/components/Navbar/Navbar";
+import { Poppins } from "next/font/google";
 import ModalPreview from "@/providers/modalPreview";
 import ToastProvider from "@/providers/toastProvider";
+import NavBar from "@/components/NavBar";
 
-const nunito = Urbanist({
+const poppins = Poppins({
   subsets: ["latin"],
-  weight: "500",
+  weight: ["100", "200", "300", "400", "600", "700", "800", "900"],
   fallback: ["sans-serif"],
 });
 
@@ -24,12 +24,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
-        <ModalPreview />
-        <ToastProvider />
-        <Navbar />
-        {children}
-        <Footer />
+      <body className={poppins.className}>
+        <main className="container">
+          <ModalPreview />
+          <ToastProvider />
+          <NavBar />
+          {children}
+          <Footer />
+        </main>
       </body>
     </html>
   );

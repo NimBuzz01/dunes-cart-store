@@ -1,10 +1,11 @@
 "use client";
-import { IProduct } from "@/common.types";
+import { IProduct } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
-import IconButton from "../ui/IconButton";
+import IconButton from "./IconButton";
 import { X } from "lucide-react";
 import useCart from "@/hooks/useCart";
+import { Button } from "./ui/button";
 
 interface CartItemProps {
   item: IProduct;
@@ -24,10 +25,13 @@ const CartItem = ({ item }: CartItemProps) => {
       </div>
       <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
         <div className="absolute right-2 top-2">
-          <IconButton
+          <Button
             onClick={() => cart.removeItem(item?.id)}
-            icon={<X size={16} color="red" />}
-          />
+            size="icon"
+            variant="outline"
+          >
+            <X size={16} color="red" />
+          </Button>
         </div>
         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
           <div className="flex justify-between">

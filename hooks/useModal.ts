@@ -1,4 +1,4 @@
-import { IProduct } from "@/common.types";
+import { IProduct } from "@/lib/types";
 import { create } from "zustand";
 
 interface ModalProps {

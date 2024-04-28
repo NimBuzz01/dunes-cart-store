@@ -1,9 +1,9 @@
 "use client";
-import { ISize } from "@/common.types";
+import { ISize } from "@/lib/types";
 import { useRouter, useSearchParams } from "next/navigation";
 import queryString from "query-string";
-import Button from "./button";
 import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
 
 interface FiltersProps {
   name: string;
@@ -30,14 +30,14 @@ const Filters = ({ name, valueKey, data }: FiltersProps) => {
         url: window.location.href,
         query,
       },
-      { skipNull: true }
+      { skipNull: true },
     );
     router.push(url);
   };
 
   return (
     <div className="mb-8">
-      <h3 className="font-semibold text-lg">{name}</h3>
+      <h3 className="text-lg font-semibold">{name}</h3>
       <hr className="my-3" />
       <div className="flex flex-wrap gap-2">
         {data.map((filter) => (
@@ -45,8 +45,8 @@ const Filters = ({ name, valueKey, data }: FiltersProps) => {
             <Button
               onClick={() => handleClick(filter?.id)}
               className={cn(
-                "rounded-md text-sm text-gray-800 pb-2 bg-white border border-gray-300",
-                selectedValue && "bg-black text-white"
+                "rounded-md border border-gray-300 bg-white pb-2 text-sm text-gray-800",
+                selectedValue && "bg-black text-white",
               )}
             >
               {filter?.name}
