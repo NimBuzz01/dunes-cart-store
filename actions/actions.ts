@@ -1,4 +1,4 @@
-import { IBillboard, ICategory, IProduct, ISize } from "@/common.types";
+import { ICategory, ICollection, IProduct, ISize } from "@/common.types";
 import qs from "query-string";
 
 export const url = `${process.env.NEXT_PUBLIC_API_URL}`;
@@ -20,16 +20,16 @@ export const getCategory = async (id: string): Promise<ICategory> => {
   }
 };
 
-export const getBillboards = async (): Promise<IBillboard[]> => {
-  const res = await fetch(`${url}/billboards`);
+export const getCollections = async (): Promise<ICollection[]> => {
+  const res = await fetch(`${url}/collections`);
   return await res.json();
 };
-export const getBillboard = async (id: string): Promise<IBillboard> => {
+export const getCollection = async (id: string): Promise<ICollection> => {
   try {
-    const res = await fetch(`${url}/billboards/${id}`);
+    const res = await fetch(`${url}/collections/${id}`);
     return await res.json();
   } catch (error) {
-    throw new Error("Error fetching billboard ");
+    throw new Error("Error fetching collection ");
   }
 };
 // Fetch product
