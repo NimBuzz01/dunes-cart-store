@@ -6,18 +6,18 @@ const Footer = () => {
   return (
     <footer className="bg-cmprimary text-cmbackground border-t">
       <div className="container mx-auto w-full p-4">
-        <div className="md:flex md:justify-between">
+        <div className="py-6 md:flex md:justify-between">
           <div className="mb-4 md:mb-0">
             <Link href="/" className="flex">
               <Image
                 src="/logo-white.png"
                 alt="Dunes Cart Logo"
-                width={180}
+                width={140}
                 height={0}
               />
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-8 py-6 sm:grid-cols-3 sm:gap-6">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
             <div>
               <h2 className="mb-6 font-semibold uppercase">Quick Links</h2>
               <ul className="text-cmbackground text-sm font-medium transition-all">

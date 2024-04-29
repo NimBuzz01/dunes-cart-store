@@ -19,13 +19,8 @@ const NavBar = () => {
   return (
     <div className="sticky top-0 z-50 border-b bg-white shadow-md">
       <div className="container relative flex h-16 items-center justify-between">
-        <Link href="/" className="flex">
-          <Image
-            src="/logo.png"
-            alt="Dunes Cart Logo"
-            width={180}
-            height={90}
-          />
+        <Link href="/">
+          <Image src="/logo.png" alt="Dunes Cart Logo" width={140} height={0} />
         </Link>
         <NavLinks />
         <div>
