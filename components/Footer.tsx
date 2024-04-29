@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="mb-4 md:mb-0">
             <Link href="/" className="flex">
               <Image
-                src="/logo.png"
+                src="/logo-white.png"
                 alt="Dunes Cart Logo"
                 width={180}
                 height={0}
