@@ -2,10 +2,9 @@
 
 import { IProduct } from "@/lib/types";
 import Currency from "../Currency";
-import { ShoppingCart } from "lucide-react";
 import useCart from "@/hooks/useCart";
 import usePreviewModal from "@/hooks/useModal";
-import { Button } from "../ui/button";
+import MainButton from "../MainButton";
 
 interface ProductInfoProps {
   data: IProduct;
@@ -23,21 +22,25 @@ const ProductInfo = ({ data }: ProductInfoProps) => {
         </p>
       </div>
       <hr className="my-4" />
-      <div className="flex items-center gap-x-4">
-        <h3 className="font-semibold">Size:</h3>
-        <p>{data?.size?.name}</p>
+      <div className="mb-4 flex flex-col gap-x-4">
+        <h3 className="mb-1 font-semibold">Description:</h3>
+        <p>{data?.description}</p>
+      </div>
+      <div className="flex flex-col gap-x-4">
+        <h3 className="mb-1 font-semibold">Details:</h3>
+        <ul className="ml-8 flex list-disc flex-col gap-1">
+          {data?.details.map((item, index) => <li key={index}>{item}</li>)}
+        </ul>
       </div>
       <div className="mt-10 flex items-center gap-x-3">
-        <Button
+        <MainButton
           onClick={() => {
             cart.addItem(data);
             previewModal.onClose();
           }}
-          className="flex items-center gap-x-3"
-        >
-          <span className="mr-2">Add to cart</span>
-          <ShoppingCart size={20} />{" "}
-        </Button>
+          text="Add To Cart"
+          className="w-56"
+        />
       </div>
     </div>
   );

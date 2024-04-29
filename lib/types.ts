@@ -7,7 +7,6 @@ export interface ICollection {
 export interface ICategory {
   id: string;
   name: string;
-  collection: ICollection;
 }
 
 export interface IImage {
@@ -20,12 +19,7 @@ export interface IProduct {
   name: string;
   price: string;
   isFeatured: boolean;
-  size: ISize;
+  description: string;
+  details: string[];
   images: IImage[];
-}
-
-export interface ISize {
-  id: string;
-  name: string;
-  value: string;
 }

@@ -1,4 +1,4 @@
-import { ICategory, ICollection, IProduct, ISize } from "@/lib/types";
+import { ICategory, ICollection, IProduct } from "@/lib/types";
 import qs from "query-string";
 
 export const url = `${process.env.NEXT_PUBLIC_API_URL}`;
@@ -44,7 +44,6 @@ export const getProduct = async (id: string): Promise<IProduct> => {
 
 type TQuery = {
   categoryId?: string;
-  sizeId?: string;
   isFeatured?: boolean;
 };
 
@@ -55,7 +54,6 @@ export const getProducts = async (query: TQuery): Promise<IProduct[]> => {
     url: URL,
     query: {
       categoryId: query.categoryId,
-      sizeId: query.sizeId,
       isFeatured: query.isFeatured,
     },
   });
@@ -63,11 +61,3 @@ export const getProducts = async (query: TQuery): Promise<IProduct[]> => {
   const res = await fetch(prodUrl);
   return await res.json();
 };
-
-//Get the sizes
-export const getSizes = async (): Promise<ISize[]> => {
-  const sizes = await fetch(`${url}/sizes`);
-  return await sizes.json();
-};
-
-// Categories

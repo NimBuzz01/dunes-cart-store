@@ -2,7 +2,6 @@ import { getCategories, getProducts } from "@/actions/actions";
 import HeroBanner from "@/components/HeroBanner";
 import CategoryList from "@/components/category/CategoryList";
 import FeaturedList from "@/components/product/FeaturedList";
-import ProductList from "@/components/product/ProductList";
 
 export default async function HomePage() {
   const products = await getProducts({ isFeatured: true });
