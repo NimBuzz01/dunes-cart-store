@@ -17,7 +17,7 @@ interface CategoryListProps {
 const CategoryList = ({ data, title }: CategoryListProps) => {
   return (
     <div className="space-y-4">
-      <h3 className="text-xl font-semibold lg:text-2xl">{title}</h3>
+      <h3 className="mb-10 text-xl font-semibold lg:text-2xl">{title}</h3>
       {data.length === 0 && <NoResults />}
       <Carousel>
         <CarouselContent>
@@ -31,7 +31,7 @@ const CategoryList = ({ data, title }: CategoryListProps) => {
           ))}
         </CarouselContent>
         {/* <CarouselPrevious />
-        <CarouselNext /> */}
+          <CarouselNext /> */}
       </Carousel>
     </div>
   );

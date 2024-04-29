@@ -35,10 +35,10 @@ const CartItem = ({ item }: CartItemProps) => {
         </div>
         <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
           <div className="flex justify-between">
-            <p className="text-lg font-semibold text-black">{item?.name}</p>
+            <p className="text-lg font-semibold">{item?.name}</p>
           </div>
           <div className="mt-1 flex text-sm">
-            <p className="text-gray-500">{item?.size?.name}</p>
+            <p className="text-cmneutral">{item?.size?.name}</p>
           </div>
         </div>
       </div>

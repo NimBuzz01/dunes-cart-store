@@ -33,17 +33,15 @@ const Summary = () => {
     window.location = res.data.url;
   };
   return (
-    <div className="lg:p6 mt-16 rounded-md bg-gray-50 px-4 py-6 lg:col-span-5 lg:mt-0">
-      <h2 className="text-lg font-semibold text-gray-900">Order summary</h2>
+    <div className="lg:p6 mt-16 rounded-md bg-white px-4 py-6 lg:col-span-5 lg:mt-0">
+      <h2 className="text-lg font-semibold ">Order summary</h2>
       <div className="mt-6 space-y-4">
-        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <p className="text-base font-medium text-gray-900">Total:</p>
+        <div className="flex items-center justify-between border-t pt-4">
+          <p className="text-base font-medium ">Total:</p>
           <Currency value={totalPrice as number} />
         </div>
-        <div className="flex items-center justify-between border-t border-gray-200 pt-4">
-          <p className="text-base font-medium text-gray-900">
-            Number of products:
-          </p>
+        <div className="flex items-center justify-between border-t pt-4">
+          <p className="text-base font-medium ">Number of products:</p>
           <p>{items?.length}</p>
         </div>
       </div>

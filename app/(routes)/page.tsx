@@ -1,4 +1,5 @@
 import { getCategories, getProducts } from "@/actions/actions";
+import HeroBanner from "@/components/HeroBanner";
 import CategoryList from "@/components/category/CategoryList";
 import ProductList from "@/components/product/ProductList";
 
@@ -7,9 +8,12 @@ export default async function HomePage() {
   const categories = await getCategories();
 
   return (
-    <div className="space-y-10 py-10">
-      <CategoryList title="Browse By Categories" data={categories} />
-      <ProductList title="Featured Products" data={products} />
+    <div className="space-y-10">
+      <HeroBanner />
+      {categories && (
+        <CategoryList title="Browse By Category" data={categories} />
+      )}
+      {products && <ProductList title="Featured Products" data={products} />}
     </div>
   );
 }

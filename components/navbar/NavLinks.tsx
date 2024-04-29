@@ -4,7 +4,7 @@ import React from "react";
 
 const NavLinks = () => {
   return (
-    <div className="hidden space-x-10 text-slate-600 md:block">
+    <div className="text-cmneutral hidden space-x-10 md:block">
       {navLinks.map((link) => (
         <Link
           key={link.name}

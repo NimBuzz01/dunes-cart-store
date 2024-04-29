@@ -19,11 +19,11 @@ const NavMenuMobile = () => {
     <Sheet>
       <SheetTrigger className="relative text-2xl transition-all md:hidden">
         <Button size="icon" className="rounded-full" variant="ghost">
-          <AiOutlineMenu className="h-6 w-6" />
+          <AiOutlineMenu className="text-cmneutral h-6 w-6" />
         </Button>
       </SheetTrigger>
       <SheetContent className="z-[1000] flex w-full flex-col sm:max-w-[450px]">
-        <SheetHeader className="text-xl font-semibold text-blue-950">
+        <SheetHeader className="text-xl font-semibold">
           <SheetTitle>Dunes Cart</SheetTitle>
         </SheetHeader>
         <div className="scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-800 flex flex-col gap-2 overflow-y-auto px-2 py-4">

@@ -6,6 +6,7 @@ import NavLinks from "./NavLinks";
 import NavMenuMobile from "./NavMenuMobile";
 import NavBarSearch from "./NavBarSearch";
 import NavBarCart from "./NavBarCart";
+import Image from "next/image";
 
 const NavBar = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -16,13 +17,18 @@ const NavBar = () => {
   if (!isMounted) return null;
 
   return (
-    <div className="border-b">
-      <div className="relative flex h-16 items-center justify-between">
+    <div className="sticky top-0 z-50 border-b bg-white shadow-md">
+      <div className="container relative flex h-16 items-center justify-between">
         <Link href="/" className="flex">
-          <p className="text-xl font-bold">DUNES CART</p>
+          <Image
+            src="/logo.png"
+            alt="Dunes Cart Logo"
+            width={180}
+            height={90}
+          />
         </Link>
         <NavLinks />
-        <div className="text-slate-600">
+        <div>
           <NavMenuMobile />
           <NavBarSearch />
           <NavBarCart />

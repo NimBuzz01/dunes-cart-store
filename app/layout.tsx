@@ -23,15 +23,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html
+      lang="en"
+      className="scrollbar-thin scrollbar-track-cmbackground scrollbar-thumb-cmprimary scroll-smooth"
+    >
       <body className={poppins.className}>
-        <main className="container min-h-screen">
-          <ModalPreview />
-          <ToastProvider />
-          <NavBar />
-          {children}
-          <Footer />
-        </main>
+        <ModalPreview />
+        <ToastProvider />
+        <NavBar />
+        <main className="container mb-20 min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   );

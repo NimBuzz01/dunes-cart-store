@@ -20,7 +20,7 @@ const NavBarCart = () => {
     <Sheet>
       <SheetTrigger className="relative text-2xl transition-all">
         <Button size="icon" className="rounded-full" variant="ghost">
-          <AiOutlineShoppingCart className="h-6 w-6" />
+          <AiOutlineShoppingCart className="text-cmneutral h-6 w-6" />
         </Button>
         {cart.items.length > -1 && (
           <span
@@ -32,10 +32,10 @@ const NavBarCart = () => {
         )}
       </SheetTrigger>
       <SheetContent className="z-[1000] flex w-full flex-col sm:max-w-[450px]">
-        <SheetHeader className="text-xl font-semibold text-blue-950">
+        <SheetHeader className="text-xl font-semibold">
           <SheetTitle>My Cart</SheetTitle>
         </SheetHeader>
-        <div className="scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-800 flex flex-col gap-2 overflow-y-auto px-2 py-4">
+        <div className="scrollbar-thin scrollbar-track-cmbackground scrollbar-thumb-cmprimary flex flex-col gap-2 overflow-y-auto px-2 py-4">
           {cart.items.length === 0 ? (
             <p>Cart Empty</p>
           ) : (
@@ -43,10 +43,10 @@ const NavBarCart = () => {
           )}
         </div>
         <div className="mt-auto w-full">
-          <div className="flex justify-end border-t-2 border-gray-200">
-            <div className="my-3 flex items-end gap-2 text-blue-950">
+          <div className="flex justify-end border-t">
+            <div className="my-3 flex items-end gap-2">
               <p className="text-sm">Total</p>
-              <h5 className="text-xl font-semibold">$ 10</h5>
+              <h5 className="text-xl font-semibold">LKR 10000</h5>
             </div>
           </div>
           <SheetClose asChild>

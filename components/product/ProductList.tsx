@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import React from "react";
 
 interface ProductListProps {
   data: IProduct[];
@@ -17,9 +18,9 @@ interface ProductListProps {
 const ProductList = ({ data, title }: ProductListProps) => {
   return (
     <div className="space-y-4">
-      <h3 className="text-xl font-semibold lg:text-2xl">{title}</h3>
+      <h3 className="mb-10 text-xl font-semibold lg:text-2xl">{title}</h3>
       {data.length === 0 && <NoResults />}
-      <Carousel>
+      {/* <Carousel>
         <CarouselContent>
           {data.map((item) => (
             <CarouselItem
@@ -30,9 +31,16 @@ const ProductList = ({ data, title }: ProductListProps) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* <CarouselPrevious />
-        <CarouselNext /> */}
-      </Carousel>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel> */}
+      <div className="flex flex-wrap justify-center gap-4">
+        {data.map((item) => (
+          <div key={item.id} className="mb-4">
+            <ProductCard product={item} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

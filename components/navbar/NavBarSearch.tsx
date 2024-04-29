@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 const NavBarSearch = () => {
   return (
     <Button size="icon" className="rounded-full" variant="ghost">
-      <AiOutlineSearch className="h-6 w-6" />
+      <AiOutlineSearch className="text-cmneutral h-6 w-6" />
     </Button>
   );
 };

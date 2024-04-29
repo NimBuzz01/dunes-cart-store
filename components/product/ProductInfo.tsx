@@ -16,15 +16,15 @@ const ProductInfo = ({ data }: ProductInfoProps) => {
   const previewModal = usePreviewModal();
   return (
     <div>
-      <p className="text-3xl font-bold text-gray-900">{data?.name}</p>
+      <p className="text-3xl font-bold">{data?.name}</p>
       <div className="mt-3 flex items-end justify-between">
-        <p className="text-2xl text-gray-900">
+        <p className="text-2xl">
           <Currency value={data?.price} />
         </p>
       </div>
       <hr className="my-4" />
       <div className="flex items-center gap-x-4">
-        <h3 className="font-semibold text-black">Size:</h3>
+        <h3 className="font-semibold">Size:</h3>
         <p>{data?.size?.name}</p>
       </div>
       <div className="mt-10 flex items-center gap-x-3">

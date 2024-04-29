@@ -4,11 +4,12 @@ import { MouseEventHandler } from "react";
 import { IProduct } from "@/lib/types";
 import Image from "next/image";
 import IconButton from "../IconButton";
-import { Expand, ShoppingCart } from "lucide-react";
+import { Expand } from "lucide-react";
 import Currency from "../Currency";
 import { useRouter } from "next/navigation";
 import usePreviewModal from "@/hooks/useModal";
 import useCart from "@/hooks/useCart";
+import { Button } from "../ui/button";
 
 interface ProductCardProps {
   product: IProduct;
@@ -19,7 +20,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const previewModal = usePreviewModal();
   const cart = useCart();
   const handleClick = () => {
-    router.push(`/product/${product?.id}`);
+    router.push(`/products/${product?.id}`);
   };
 
   const onPreview: MouseEventHandler<HTMLButtonElement> = (e) => {
@@ -31,26 +32,25 @@ const ProductCard = ({ product }: ProductCardProps) => {
     cart.addItem(product);
   };
   return (
-    <div
-      onClick={handleClick}
-      className="group cursor-pointer space-y-4 rounded-xl border bg-white p-3"
-    >
-      <div className="relative aspect-square rounded-xl">
+    <div onClick={handleClick} className="group w-80 cursor-pointer space-y-2">
+      <div className="relative aspect-square bg-[#f8ebd3]">
         <Image
           alt="image"
           src={product?.images?.[0]?.url}
           fill
-          className="aspect-square overflow-hidden rounded-md object-cover transition-all group-hover:scale-95"
+          className="aspect-square overflow-hidden object-cover transition-all group-hover:scale-95"
         />
-        <div className="absolute bottom-5 hidden w-full px-6 opacity-0 transition group-hover:opacity-100 lg:block">
-          <div className="flex justify-center gap-x-6">
+        <div className="absolute bottom-5 block w-full px-6 opacity-0 transition group-hover:opacity-100">
+          <div className="flex justify-center gap-x-2">
+            <Button
+              className="transition-all hover:scale-105"
+              onClick={onAddToCart}
+            >
+              Add To Cart
+            </Button>
             <IconButton
               onClick={onPreview}
-              icon={<Expand size={20} className="text-gray-500" />}
-            />
-            <IconButton
-              onClick={onAddToCart}
-              icon={<ShoppingCart size={20} className="text-gray-500" />}
+              icon={<Expand size={20} className="text-cmneutral" />}
             />
           </div>
         </div>
@@ -58,9 +58,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
       {/** Description */}
       <div className="">
         <p className="text-lg font-semibold">{product?.name}</p>
-        <p className="text-sm text-gray-500">{product?.category?.name}</p>
+        <p className="text-cmneutral text-sm">{product?.category?.name}</p>
       </div>
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between text-lg">
         <Currency value={product?.price} />
       </div>
     </div>
