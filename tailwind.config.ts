@@ -22,7 +22,7 @@ const config = {
         cmprimary: "#323643",
         cmsecondary: "#5755FE",
         cmneutral: "#606470",
-        cmbackground: "#EEF5FF",
+        cmbackground: "#FFFFFF",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

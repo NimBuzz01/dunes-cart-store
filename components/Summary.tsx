@@ -17,6 +17,7 @@ const Summary = () => {
     (total, item) => total + Number(item?.price),
     0,
   );
+
   useEffect(() => {
     if (searchParams.get("success")) {
       toast.success("Payment successful processed");
@@ -26,6 +27,7 @@ const Summary = () => {
       toast.error("Payment process cancelled");
     }
   }, [searchParams, removeAll]);
+
   const onCheckout = async () => {
     const res = await axios.post(`${url}/checkout`, {
       productIds: items?.map((item) => item?.id),
@@ -35,7 +37,7 @@ const Summary = () => {
   };
   return (
     <div className="lg:p6 mt-16 rounded-md bg-white px-4 py-6 lg:col-span-5 lg:mt-0">
-      <h2 className="text-lg font-semibold ">Order summary</h2>
+      <h2 className="text-lg font-semibold ">Order Summary</h2>
       <div className="my-6 space-y-4">
         <div className="flex items-center justify-between border-t pt-4">
           <p className="text-base font-medium ">Total:</p>
