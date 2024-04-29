@@ -1,6 +1,7 @@
 import { getCategories, getProducts } from "@/actions/actions";
 import HeroBanner from "@/components/HeroBanner";
 import CategoryList from "@/components/category/CategoryList";
+import FeaturedList from "@/components/product/FeaturedList";
 import ProductList from "@/components/product/ProductList";
 
 export default async function HomePage() {
@@ -13,7 +14,7 @@ export default async function HomePage() {
       {categories && (
         <CategoryList title="Browse By Category" data={categories} />
       )}
-      {products && <ProductList title="Featured Products" data={products} />}
+      {products && <FeaturedList title="Featured Products" data={products} />}
     </div>
   );
 }

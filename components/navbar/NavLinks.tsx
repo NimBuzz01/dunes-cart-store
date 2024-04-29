@@ -9,7 +9,7 @@ const NavLinks = () => {
         <Link
           key={link.name}
           href={link.href}
-          className="text-sm transition-all hover:text-red-500 lg:text-base"
+          className="hover:text-cmsecondary text-sm transition-all lg:text-base"
         >
           {link.name}
         </Link>

@@ -33,7 +33,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
   return (
     <div onClick={handleClick} className="group w-80 cursor-pointer space-y-2">
-      <div className="relative aspect-square bg-[#f8ebd3]">
+      <div className="bg-cmsecondary relative aspect-square bg-opacity-10">
         <Image
           alt="image"
           src={product?.images?.[0]?.url}

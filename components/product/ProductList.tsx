@@ -20,7 +20,7 @@ const ProductList = ({ data, title }: ProductListProps) => {
     <div className="space-y-4">
       <h3 className="mb-10 text-xl font-semibold lg:text-2xl">{title}</h3>
       {data.length === 0 && <NoResults />}
-      {/* <Carousel>
+      <Carousel>
         <CarouselContent>
           {data.map((item) => (
             <CarouselItem
@@ -31,16 +31,9 @@ const ProductList = ({ data, title }: ProductListProps) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
-      </Carousel> */}
-      <div className="flex flex-wrap justify-center gap-4">
-        {data.map((item) => (
-          <div key={item.id} className="mb-4">
-            <ProductCard product={item} />
-          </div>
-        ))}
-      </div>
+        {/* <CarouselPrevious />
+        <CarouselNext /> */}
+      </Carousel>
     </div>
   );
 };
