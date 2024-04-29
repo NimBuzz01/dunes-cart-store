@@ -26,7 +26,7 @@ const CategoryList = ({ data, title }: CategoryListProps) => {
           {data.map((item) => (
             <CarouselItem
               key={item.id}
-              className="basis-[35%] sm:basis-[27%] md:basis-[22%] lg:basis-1/6"
+              className="basis-[40%] sm:basis-[27%] md:basis-[22%] lg:basis-1/6"
             >
               <CategoryCard category={item} />
             </CarouselItem>

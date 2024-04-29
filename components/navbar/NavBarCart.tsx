@@ -21,7 +21,7 @@ const NavBarCart = () => {
     <Sheet>
       <SheetTrigger className="relative text-2xl transition-all">
         <Button size="icon" className="rounded-full" variant="ghost">
-          <AiOutlineShoppingCart className="text-cmneutral h-6 w-6" />
+          <AiOutlineShoppingCart className="h-6 w-6 text-cmneutral" />
         </Button>
         {cart.items.length > -1 && (
           <span
@@ -36,7 +36,7 @@ const NavBarCart = () => {
         <SheetHeader className="text-xl font-semibold">
           <SheetTitle>My Cart</SheetTitle>
         </SheetHeader>
-        <div className="scrollbar-thin scrollbar-track-cmbackground scrollbar-thumb-cmprimary flex flex-col gap-2 overflow-y-auto px-2 py-4">
+        <div className="flex flex-col gap-2 overflow-y-auto px-2 py-4 scrollbar-thin scrollbar-track-cmbackground scrollbar-thumb-cmprimary">
           {cart.items.length === 0 ? (
             <p>Cart Empty</p>
           ) : (

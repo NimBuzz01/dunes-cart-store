@@ -11,7 +11,7 @@ export default async function HomePage() {
   return (
     <>
       <HeroBanner />
-      <div className="container space-y-10 py-20">
+      <div className="space-y-10 px-3 py-20 sm:container">
         {categories && (
           <CategoryList title="Browse By Category" data={categories} />
         )}

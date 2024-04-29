@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <footer className="bg-cmprimary text-cmbackground border-t">
+    <footer className="border-t bg-cmprimary text-cmbackground">
       <div className="container mx-auto w-full p-4">
         <div className="py-6 md:flex md:justify-between">
           <div className="mb-4 md:mb-0">
@@ -20,7 +20,7 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
             <div>
               <h2 className="mb-6 font-semibold uppercase">Quick Links</h2>
-              <ul className="text-cmbackground text-sm font-medium transition-all">
+              <ul className="text-sm font-medium text-cmbackground transition-all">
                 <li className="mb-4">
                   <a
                     href="https://flowbite.com/"
@@ -57,7 +57,7 @@ const Footer = () => {
             </div>
             <div>
               <h2 className="mb-6 font-semibold uppercase ">Follow us</h2>
-              <ul className="text-cmbackground text-sm font-medium transition-all">
+              <ul className="text-sm font-medium text-cmbackground transition-all">
                 <li className="mb-4">
                   <a
                     href="https://github.com/themesberg/flowbite"
@@ -78,7 +78,7 @@ const Footer = () => {
             </div>
             <div>
               <h2 className="mb-6 font-semibold uppercase">Resources</h2>
-              <ul className="text-cmbackground text-sm font-medium transition-all">
+              <ul className="text-sm font-medium text-cmbackground transition-all">
                 <li className="mb-4">
                   <a href="#" className="hover:text-cmsecondary">
                     FAQ
@@ -99,11 +99,11 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t pt-3 sm:flex sm:items-center sm:justify-between">
-          <span className="text-cmbackground text-sm sm:text-center">
+          <span className="text-sm text-cmbackground sm:text-center">
             © 2024{" "}
             <a
               href="https://flowbite.com/"
-              className="hover:text-cmsecondary transition-all"
+              className="transition-all hover:text-cmsecondary"
             >
               Dunes Cart™
             </a>
@@ -112,7 +112,7 @@ const Footer = () => {
           <div className="mt-4 flex sm:mt-0 sm:justify-center">
             <a
               href="#"
-              className="text-cmbackground hover:text-cmsecondary transition-all"
+              className="text-cmbackground transition-all hover:text-cmsecondary"
             >
               <svg
                 className="h-4 w-4"
@@ -131,7 +131,7 @@ const Footer = () => {
             </a>
             <a
               href="#"
-              className="text-cmbackground hover:text-cmsecondary ms-5 transition-all"
+              className="ms-5 text-cmbackground transition-all hover:text-cmsecondary"
             >
               <svg
                 className="h-4 w-4"
@@ -146,7 +146,7 @@ const Footer = () => {
             </a>
             <a
               href="#"
-              className="text-cmbackground hover:text-cmsecondary ms-5 transition-all"
+              className="ms-5 text-cmbackground transition-all hover:text-cmsecondary"
             >
               <svg
                 className="h-4 w-4"
@@ -165,7 +165,7 @@ const Footer = () => {
             </a>
             <a
               href="#"
-              className="text-cmbackground hover:text-cmsecondary ms-5 transition-all"
+              className="ms-5 text-cmbackground transition-all hover:text-cmsecondary"
             >
               <svg
                 className="h-4 w-4"

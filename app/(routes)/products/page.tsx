@@ -6,7 +6,7 @@ const Products = async () => {
   const products = await getProducts({ isFeatured: true });
 
   return (
-    <div className="container">
+    <div className="px-3 sm:container">
       <div>All Products</div>
       <div className="flex flex-wrap justify-center gap-4">
         {products.map((item) => (
