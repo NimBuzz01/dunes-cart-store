@@ -37,9 +37,6 @@ const CartItem = ({ item }: CartItemProps) => {
           <div className="flex justify-between">
             <p className="text-lg font-semibold">{item?.name}</p>
           </div>
-          <div className="mt-1 flex text-sm">
-            <p className="text-cmneutral">{item?.size?.name}</p>
-          </div>
         </div>
       </div>
     </li>
