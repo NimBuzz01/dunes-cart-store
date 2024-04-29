@@ -31,7 +31,7 @@ export default function RootLayout({
         <ModalPreview />
         <ToastProvider />
         <NavBar />
-        <main className="container mb-20 min-h-screen">{children}</main>
+        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

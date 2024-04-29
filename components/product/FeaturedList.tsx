@@ -3,6 +3,7 @@ import NoResults from "../NoResults";
 import ProductCard from "./ProductCard";
 import React from "react";
 import { Button } from "../ui/button";
+import MainButton from "../MainButton";
 
 interface ProductListProps {
   data: IProduct[];
@@ -13,8 +14,10 @@ const FeaturedList = ({ data, title }: ProductListProps) => {
   return (
     <div className="space-y-4">
       <div className="mb-10 flex items-center justify-between">
-        <h3 className="text-xl font-semibold lg:text-2xl">{title}</h3>
-        <Button>View All Products</Button>
+        <h3 className="text-xl font-semibold md:text-2xl lg:text-3xl">
+          {title}
+        </h3>
+        <MainButton text="View All Products" className="w-56 md:w-64" />
       </div>
 
       {data.length === 0 && <NoResults />}

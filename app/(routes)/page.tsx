@@ -9,12 +9,14 @@ export default async function HomePage() {
   const categories = await getCategories();
 
   return (
-    <div className="space-y-10">
+    <>
       <HeroBanner />
-      {categories && (
-        <CategoryList title="Browse By Category" data={categories} />
-      )}
-      {products && <FeaturedList title="Featured Products" data={products} />}
-    </div>
+      <div className="container space-y-10 py-20">
+        {categories && (
+          <CategoryList title="Browse By Category" data={categories} />
+        )}
+        {products && <FeaturedList title="Featured Products" data={products} />}
+      </div>
+    </>
   );
 }

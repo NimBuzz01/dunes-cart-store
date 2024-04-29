@@ -7,6 +7,7 @@ import axios from "axios";
 import { url } from "@/actions/actions";
 import toast from "react-hot-toast";
 import { Button } from "./ui/button";
+import MainButton from "./MainButton";
 
 const Summary = () => {
   const items = useCart((state) => state.items);
@@ -35,7 +36,7 @@ const Summary = () => {
   return (
     <div className="lg:p6 mt-16 rounded-md bg-white px-4 py-6 lg:col-span-5 lg:mt-0">
       <h2 className="text-lg font-semibold ">Order summary</h2>
-      <div className="mt-6 space-y-4">
+      <div className="my-6 space-y-4">
         <div className="flex items-center justify-between border-t pt-4">
           <p className="text-base font-medium ">Total:</p>
           <Currency value={totalPrice as number} />
@@ -45,13 +46,11 @@ const Summary = () => {
           <p>{items?.length}</p>
         </div>
       </div>
-      <Button
-        disabled={items?.length === 0}
+      <MainButton
         onClick={onCheckout}
-        className="mt-8 w-full text-center"
-      >
-        Checkout
-      </Button>
+        text="Checkout"
+        disabled={items?.length === 0}
+      />
     </div>
   );
 };

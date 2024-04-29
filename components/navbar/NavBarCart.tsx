@@ -11,6 +11,7 @@ import {
 import useCart from "@/hooks/useCart";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import MainButton from "../MainButton";
 
 const NavBarCart = () => {
   const cart = useCart();
@@ -50,13 +51,7 @@ const NavBarCart = () => {
             </div>
           </div>
           <SheetClose asChild>
-            <Button
-              onClick={() => {
-                router.push("/cart");
-              }}
-            >
-              View Cart
-            </Button>
+            <MainButton text="View Cart" href="/cart" />
           </SheetClose>
         </div>
       </SheetContent>

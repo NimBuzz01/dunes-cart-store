@@ -33,7 +33,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
   return (
     <div onClick={handleClick} className="group w-80 cursor-pointer space-y-2">
-      <div className="bg-cmsecondary relative aspect-square bg-opacity-10">
+      <div className="relative aspect-square bg-blue-100">
         <Image
           alt="image"
           src={product?.images?.[0]?.url}
@@ -43,7 +43,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="absolute bottom-5 block w-full px-6 opacity-0 transition group-hover:opacity-100">
           <div className="flex justify-center gap-x-2">
             <Button
-              className="transition-all hover:scale-105"
+              className="bg-cmsecondary hover:bg-cmsecondary/90 transition-all hover:scale-105"
               onClick={onAddToCart}
             >
               Add To Cart
