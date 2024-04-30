@@ -1,5 +1,6 @@
 import { getCategories, getProducts } from "@/actions/actions";
 import HeroBanner from "@/components/HeroBanner";
+import Services from "@/components/Services";
 import CategoryList from "@/components/category/CategoryList";
 import FeaturedList from "@/components/product/FeaturedList";
 
@@ -16,6 +17,7 @@ export default async function HomePage() {
         )}
         {products && <FeaturedList title="Featured Products" data={products} />}
       </div>
+      <Services />
     </>
   );
 }

@@ -1,12 +1,15 @@
 export interface ICollection {
   id: string;
-  label: string;
+  title: string;
+  description: string;
   imageUrl: string;
+  productUrl: string;
 }
 
 export interface ICategory {
   id: string;
   name: string;
+  imageUrl: string;
 }
 
 export interface IImage {

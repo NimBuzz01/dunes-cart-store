@@ -8,7 +8,7 @@ const Footer = () => {
     <footer className="border-t bg-cmprimary text-cmbackground">
       <div className="container mx-auto w-full p-4">
         <div className="py-6 md:flex md:justify-between">
-          <div className="mb-4 md:mb-0">
+          <div className="mb-10 md:mb-0">
             <Link href="/" className="flex">
               <Image
                 src="/logo-white.png"
