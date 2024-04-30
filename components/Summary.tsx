@@ -14,7 +14,7 @@ const Summary = () => {
   const searchParams = useSearchParams();
   const removeAll = useCart((state) => state.removeAllItems);
   const totalPrice = items?.reduce(
-    (total, item) => total + Number(item?.price),
+    (total, item) => total + Number(item?.product.price) * item.quantity,
     0,
   );
 
@@ -30,7 +30,7 @@ const Summary = () => {
 
   const onCheckout = async () => {
     const res = await axios.post(`${url}/checkout`, {
-      productIds: items?.map((item) => item?.id),
+      productIds: items?.map((item) => item?.product.id),
     });
     toast.loading("Redirecting to stripe...");
     window.location = res.data.url;

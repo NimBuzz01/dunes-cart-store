@@ -4,14 +4,24 @@ import { Loader2 } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
+import { Button } from "./ui/button";
 
 interface Props {
   href?: string;
   text: string;
   className?: string;
   type?: "button" | "submit" | "reset" | undefined;
-  bgColor?: string;
+  variant?:
+    | "link"
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "ghost"
+    | null
+    | undefined;
   disabled?: boolean;
+  hideIcon?: boolean;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
@@ -19,6 +29,8 @@ const MainButton = ({
   href,
   text,
   className,
+  variant,
+  hideIcon,
   type = "button",
   disabled,
   onClick,
@@ -45,30 +57,39 @@ const MainButton = ({
   const buttonContent = (
     <>
       {text}{" "}
-      {loading ? (
-        <Loader2 className="h-5 w-5 animate-spin" />
-      ) : (
-        <BsArrowRight className="text-lg transition-all duration-300 group-hover:translate-x-1 md:text-xl" />
+      {!hideIcon && (
+        <>
+          {loading ? (
+            <Loader2 className="h-5 w-5 animate-spin" />
+          ) : (
+            <BsArrowRight className="text-lg transition-all duration-300 group-hover:translate-x-1 md:text-xl" />
+          )}
+        </>
       )}
     </>
   );
 
   const buttonProps = {
     onClick: handleClick,
-    className: `flex w-full items-center cursor-pointer justify-center gap-2 rounded-sm px-4 py-3 text-xs sm:text-sm md:text-base font-medium tracking-wider text-white transition-all sm:px-6 sm:py-3 bg-cmsecondary group-hover:bg-cmsecondary/90 ${disabled && "bg-cmneutral group-hover:bg-cmneutral cursor-not-allowed"}`,
+    className: `flex w-full items-center cursor-pointer justify-center gap-2 rounded-sm h-12 text-xs sm:text-sm md:text-base font-medium tracking-wider  transition-all sm:px-6 sm:py-3 ${variant === "outline" ? "" : "bg-cmsecondary group-hover:bg-cmsecondary/90  text-white"}  ${disabled && "bg-cmneutral group-hover:bg-cmneutral cursor-not-allowed"}`,
   };
 
   return href ? (
     <Link href={href} className={cn("group", className)}>
-      <button {...buttonProps} disabled={disabled}>
+      <Button {...buttonProps} disabled={disabled} variant={variant}>
         {buttonContent}
-      </button>
+      </Button>
     </Link>
   ) : (
     <div className={cn("group", className)}>
-      <button {...buttonProps} type={type} disabled={disabled}>
+      <Button
+        {...buttonProps}
+        type={type}
+        disabled={disabled}
+        variant={variant}
+      >
         {buttonContent}
-      </button>
+      </Button>
     </div>
   );
 };

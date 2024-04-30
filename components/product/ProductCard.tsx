@@ -1,7 +1,7 @@
 "use client";
 
 import { MouseEventHandler } from "react";
-import { IProduct } from "@/lib/types";
+import { IOrderItem, IProduct } from "@/lib/types";
 import Image from "next/image";
 import IconButton from "../IconButton";
 import { Expand } from "lucide-react";
@@ -29,7 +29,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
   const onAddToCart: MouseEventHandler<HTMLButtonElement> = (e) => {
     e.stopPropagation();
-    cart.addItem(product);
+    const order: IOrderItem = {
+      product: product,
+      quantity: 1,
+    };
+
+    cart.addItem(order);
   };
   return (
     <div onClick={handleClick} className="group w-80 cursor-pointer space-y-2">
@@ -43,7 +48,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="absolute bottom-5 block w-full px-6 opacity-0 transition group-hover:opacity-100">
           <div className="flex justify-center gap-x-2">
             <Button
-              className="bg-cmsecondary hover:bg-cmsecondary/90 transition-all hover:scale-105"
+              className="bg-cmsecondary transition-all hover:scale-105 hover:bg-cmsecondary/90"
               onClick={onAddToCart}
             >
               Add To Cart
@@ -58,7 +63,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       {/** Description */}
       <div className="">
         <p className="text-lg font-semibold">{product?.name}</p>
-        <p className="text-cmneutral text-sm">{product?.category?.name}</p>
+        <p className="text-sm text-cmneutral">{product?.category?.name}</p>
       </div>
       <div className="flex items-center justify-between text-lg">
         <Currency value={product?.price} />

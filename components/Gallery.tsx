@@ -1,8 +1,12 @@
 "use client";
-
-import { Tab } from "@headlessui/react";
+import { useEffect, useState, useMemo } from "react";
 import { IImage } from "@/lib/types";
-import GalleryTab from "./GalleryTab";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselApi,
+} from "./ui/carousel";
 import Image from "next/image";
 
 interface GalleryProps {
@@ -10,30 +14,89 @@ interface GalleryProps {
 }
 
 const Gallery = ({ images }: GalleryProps) => {
+  const [mainApi, setMainApi] = useState<CarouselApi>();
+  const [thumbnailApi, setThumbnailApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+
+  const mainImage = useMemo(
+    () =>
+      images.map((image, index) => (
+        <CarouselItem key={index} className="relative aspect-square w-full">
+          <Image
+            src={image.url}
+            alt={`Carousel Top Image ${index + 1}`}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </CarouselItem>
+      )),
+    [images],
+  );
+
+  const thumbnailImages = useMemo(
+    () =>
+      images.map((image, index) => (
+        <CarouselItem
+          key={index}
+          className="relative aspect-square w-full basis-1/4"
+          onClick={() => handleClick(index)}
+        >
+          <Image
+            className={`${index === current ? "border-2 border-cmsecondary" : ""}`}
+            src={image.url}
+            fill
+            alt={`Carousel Bottom Image ${index + 1}`}
+            style={{ objectFit: "cover" }}
+          />
+        </CarouselItem>
+      )),
+    [images, current],
+  );
+
+  useEffect(() => {
+    if (!mainApi || !thumbnailApi) {
+      return;
+    }
+
+    const handleTopSelect = () => {
+      const selected = mainApi.selectedScrollSnap();
+      setCurrent(selected);
+      thumbnailApi.scrollTo(selected);
+    };
+
+    const handleBottomSelect = () => {
+      const selected = thumbnailApi.selectedScrollSnap();
+      setCurrent(selected);
+      mainApi.scrollTo(selected);
+    };
+
+    mainApi.on("select", handleTopSelect);
+    thumbnailApi.on("select", handleBottomSelect);
+
+    return () => {
+      mainApi.off("select", handleTopSelect);
+      thumbnailApi.off("select", handleBottomSelect);
+    };
+  }, [mainApi, thumbnailApi]);
+
+  const handleClick = (index: number) => {
+    if (!mainApi || !thumbnailApi) {
+      return;
+    }
+    thumbnailApi.scrollTo(index);
+    mainApi.scrollTo(index);
+    setCurrent(index);
+  };
+
   return (
-    <Tab.Group as="div" className="flex flex-col-reverse">
-      <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
-        <Tab.List className="grid grid-cols-4 gap-6">
-          {images.map((image) => (
-            <GalleryTab key={image.id} image={image} />
-          ))}
-        </Tab.List>
-      </div>
-      <Tab.Panels className="aspect-square w-full">
-        {images.map((image) => (
-          <Tab.Panel key={image.id}>
-            <div className="relative aspect-square h-full w-full overflow-hidden sm:rounded-lg">
-              <Image
-                fill
-                alt="image"
-                src={image?.url}
-                className="object-cover object-center"
-              />
-            </div>
-          </Tab.Panel>
-        ))}
-      </Tab.Panels>
-    </Tab.Group>
+    <div>
+      <Carousel setApi={setMainApi}>
+        <CarouselContent className="m-1">{mainImage}</CarouselContent>
+      </Carousel>
+      <Carousel setApi={setThumbnailApi}>
+        <CarouselContent className="m-1">{thumbnailImages}</CarouselContent>
+      </Carousel>
+    </div>
   );
 };
 

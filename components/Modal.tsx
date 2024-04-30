@@ -15,8 +15,8 @@ const Modal = ({ isOpen, onClose, children }: ModalProps) => {
     <Transition show={isOpen} appear as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={onClose}>
         <div className="fixed inset-0 bg-black bg-opacity-25" />
-        <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center p-4 text-center">
+        <div className="fixed inset-0 mt-16  overflow-y-auto">
+          <div className="flex min-h-full items-center justify-center text-center sm:p-4">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"

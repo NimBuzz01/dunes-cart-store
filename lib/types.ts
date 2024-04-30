@@ -23,3 +23,14 @@ export interface IProduct {
   details: string[];
   images: IImage[];
 }
+
+export interface IOrder {
+  id: string;
+  items: IOrderItem[];
+  total: number;
+}
+
+export interface IOrderItem {
+  product: IProduct;
+  quantity: number;
+}

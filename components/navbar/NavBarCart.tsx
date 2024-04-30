@@ -10,12 +10,17 @@ import {
 } from "@/components/ui/sheet";
 import useCart from "@/hooks/useCart";
 import { Button } from "../ui/button";
-import { useRouter } from "next/navigation";
 import MainButton from "../MainButton";
+import Image from "next/image";
+import { Trash } from "lucide-react";
+import Currency from "../Currency";
 
 const NavBarCart = () => {
   const cart = useCart();
-  const router = useRouter();
+  const totalPrice = cart.items.reduce(
+    (total, item) => total + Number(item?.product.price) * item.quantity,
+    0,
+  );
 
   return (
     <Sheet>
@@ -40,14 +45,35 @@ const NavBarCart = () => {
           {cart.items.length === 0 ? (
             <p>Cart Empty</p>
           ) : (
-            cart.items.map((item) => <div key={item.id}>{item.name}</div>)
+            cart.items.map((item) => (
+              <div key={item.product.id}>
+                <Image
+                  src={item.product.images[0].url}
+                  alt={item.product.name}
+                  width={50}
+                  height={50}
+                />
+                <p>{item.product.name}</p>
+                <p>{item.quantity}</p>
+                <Button
+                  size="icon"
+                  onClick={() => {
+                    cart.removeItem(item.product.id);
+                  }}
+                >
+                  <Trash />
+                </Button>
+              </div>
+            ))
           )}
         </div>
         <div className="mt-auto w-full">
           <div className="flex justify-end border-t">
             <div className="my-3 flex items-end gap-2">
               <p className="text-sm">Total</p>
-              <h5 className="text-xl font-semibold">LKR 10000</h5>
+              <h5 className="text-xl font-semibold">
+                <Currency value={totalPrice as number} />
+              </h5>
             </div>
           </div>
           <SheetClose asChild>

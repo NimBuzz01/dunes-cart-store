@@ -12,13 +12,12 @@ const PreviewModal = () => {
 
   return (
     <Modal onClose={previewModal.onClose} isOpen={previewModal.isOpen}>
-      <div className="grid w-full grid-cols-2 items-start gap-x-6 gap-y-8 sm:grid-cols-12 lg:gap-x-8">
-        <div className="sm:col-span-4 lg:col-span-5">
+      <div className="flex w-full flex-col lg:flex-row">
+        <div className="w-full">
           <Gallery images={product.images} />
         </div>
-        <div className="sm:col-span-8 lg:col-span-7">
-          <ProductInfo data={product} />
-        </div>
+
+        <ProductInfo data={product} />
       </div>
     </Modal>
   );
