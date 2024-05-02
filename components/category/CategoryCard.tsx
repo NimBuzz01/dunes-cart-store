@@ -2,6 +2,7 @@ import { ICategory } from "@/lib/types";
 import React from "react";
 import { Card } from "../ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
 interface CategoryCardProps {
   category: ICategory;
@@ -9,18 +10,22 @@ interface CategoryCardProps {
 
 const CategoryCard = ({ category }: CategoryCardProps) => {
   return (
-    <Card className="my-1 flex h-36 flex-col items-center justify-center gap-3 rounded-none p-5 text-center transition-all hover:scale-105 hover:cursor-pointer hover:shadow-lg">
-      <Image
-        src={category.imageUrl}
-        alt={category.name}
-        className="scale-150"
-        height={60}
-        width={60}
-      />
-      <p className=" text-xs font-semibold text-cmneutral sm:text-sm">
-        {category.name}
-      </p>
-    </Card>
+    <Link href={`/products?category=${category.id}`}>
+      <Card className="flex h-full flex-col items-center justify-center gap-3 rounded-none p-2 py-4 text-center transition-all hover:scale-95 hover:cursor-pointer hover:shadow-lg">
+        <div className="relative aspect-square w-24">
+          <Image
+            src={category.imageUrl}
+            alt={category.name}
+            fill
+            style={{ objectFit: "cover" }}
+          />
+        </div>
+
+        <p className=" text-xs font-semibold text-cmneutral sm:text-sm">
+          {category.name}
+        </p>
+      </Card>
+    </Link>
   );
 };
 

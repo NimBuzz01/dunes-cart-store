@@ -1,22 +1,31 @@
-import Image from "next/image";
+"use client";
 import React from "react";
-import { Star } from "lucide-react";
-import MainButton from "./MainButton";
-import { getCollections } from "@/actions/actions";
-import { ICollection } from "@/lib/types";
 import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import HeroBannerContent from "./HeroBannerContent";
+import Autoplay from "embla-carousel-autoplay";
+import { ICollection } from "@/lib/types";
 
-const HeroBanner = async () => {
-  const banners = await getCollections();
+interface HeroBannerProps {
+  banners: ICollection[];
+}
 
+const HeroBanner = ({ banners }: HeroBannerProps) => {
   return (
-    <div className="relative bg-cmsecondary/20">
+    <div className="relative bg-cmsecondary/10">
       {/* <Image src="/hero-bg.webp" fill alt="banner-bg" /> */}
-      <div className="container">
+      <div className="container lg:py-16">
         <Carousel
           opts={{
             loop: true,
           }}
+          plugins={[
+            Autoplay({
+              delay: 3000,
+              stopOnInteraction: false,
+              stopOnMouseEnter: false,
+              stopOnFocusIn: false,
+            }),
+          ]}
         >
           <CarouselContent>
             {banners.map((banner) => (
@@ -32,33 +41,3 @@ const HeroBanner = async () => {
 };
 
 export default HeroBanner;
-
-const HeroBannerContent = ({ banner }: { banner: ICollection }) => {
-  return (
-    <div className="flex w-full flex-col items-center gap-0 lg:flex-row lg:justify-between">
-      <div className="mt-20 w-full max-w-2xl space-y-6 text-lg lg:mt-0">
-        <p className="flex  items-center gap-2 text-sm font-semibold text-red-500 sm:text-base md:text-lg ">
-          <Star className="h-4 w-4 rounded-full border border-red-500 bg-red-500 fill-white md:h-6 md:w-6" />{" "}
-          Top Products of the Month
-        </p>
-        <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl lg:text-6xl">
-          {banner.title}
-        </h1>
-        <p className="pb-8 text-sm text-cmneutral sm:text-base md:text-lg">
-          {banner.description}
-        </p>
-        <div className="w-44">
-          <MainButton text="Shop Now" href={banner.productUrl} />
-        </div>
-      </div>
-      <div className="relative aspect-square w-full">
-        <Image
-          src={banner.imageUrl}
-          fill
-          alt="hero image"
-          style={{ objectFit: "cover" }}
-        />
-      </div>
-    </div>
-  );
-};

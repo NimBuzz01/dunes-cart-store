@@ -13,13 +13,12 @@ interface ProductListProps {
 const FeaturedList = ({ data, title }: ProductListProps) => {
   return (
     <div className="space-y-4">
-      <div className="mb-10 flex flex-col items-center justify-between gap-4 md:flex-row">
-        <h3 className="text-xl font-semibold md:text-2xl lg:text-3xl">
+      <div className="mb-10 flex flex-wrap items-center justify-between gap-4 sm:flex-row">
+        <h3 className="text-xl font-semibold sm:text-2xl md:text-3xl">
           {title}
         </h3>
-        <MainButton text="View All Products" className="w-56 md:w-64" />
+        <MainButton text="View All Products" href={`/products`} />
       </div>
-
       {data.length === 0 && <NoResults />}
       <div className="flex flex-wrap justify-center gap-4">
         {data.slice(0, 8).map((item) => (

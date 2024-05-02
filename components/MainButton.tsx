@@ -71,7 +71,7 @@ const MainButton = ({
 
   const buttonProps = {
     onClick: handleClick,
-    className: `flex w-full items-center cursor-pointer justify-center gap-2 rounded-sm h-12 text-xs sm:text-sm md:text-base font-medium tracking-wider  transition-all sm:px-6 sm:py-3 ${variant === "outline" ? "" : "bg-cmsecondary group-hover:bg-cmsecondary/90  text-white"}  ${disabled && "bg-cmneutral group-hover:bg-cmneutral cursor-not-allowed"}`,
+    className: `flex w-full items-center cursor-pointer justify-center gap-2 rounded-sm text-xs sm:text-sm md:text-base font-medium tracking-wider transition-all px-6 lg:px-8 sm:py-3 ${variant === "outline" ? "" : "bg-cmsecondary group-hover:bg-cmsecondary/90  text-white"}  ${disabled && "bg-cmneutral group-hover:bg-cmneutral cursor-not-allowed"}`,
   };
 
   return href ? (

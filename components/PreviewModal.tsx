@@ -12,7 +12,7 @@ const PreviewModal = () => {
 
   return (
     <Modal onClose={previewModal.onClose} isOpen={previewModal.isOpen}>
-      <div className="flex w-full flex-col lg:flex-row">
+      <div className="flex w-full flex-col gap-2 lg:flex-row">
         <div className="w-full">
           <Gallery images={product.images} />
         </div>

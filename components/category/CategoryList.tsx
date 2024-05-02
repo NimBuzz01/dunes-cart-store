@@ -17,7 +17,7 @@ interface CategoryListProps {
 const CategoryList = ({ data, title }: CategoryListProps) => {
   return (
     <div className="space-y-4">
-      <h3 className="mb-10 text-xl font-semibold md:text-2xl lg:text-3xl">
+      <h3 className="mb-6 text-xl font-semibold sm:mb-10 sm:text-2xl md:text-3xl">
         {title}
       </h3>
       {data.length === 0 && <NoResults />}
