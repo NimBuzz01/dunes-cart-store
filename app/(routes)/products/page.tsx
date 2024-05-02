@@ -1,20 +1,15 @@
-import { getProducts } from "@/actions/actions";
+import { getCategories, getProducts } from "@/actions/actions";
+import ProductsContent from "@/components/ProductsContent";
 import ProductCard from "@/components/product/ProductCard";
 import React from "react";
 
 const Products = async () => {
-  const products = await getProducts({ isFeatured: true });
+  const products = await getProducts({});
+  const categories = await getCategories();
 
   return (
     <div className="px-3 sm:container">
-      <div>All Products</div>
-      <div className="flex flex-wrap justify-center gap-4">
-        {products.map((item) => (
-          <React.Fragment key={item.id}>
-            <ProductCard product={item} />
-          </React.Fragment>
-        ))}
-      </div>
+      <ProductsContent products={products} categories={categories} />
     </div>
   );
 };
