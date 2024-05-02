@@ -9,20 +9,25 @@ export const navLinks = [
 export const services = [
   {
     title: "Islandwide Shipping",
-    description:
-      "Islandwide shipping worldwide 24/9 Islandwide shipping worldwide 24/9",
-    image: "/sample.png",
+    description: "Islandwide shipping for all orders anywhere in Sri Lanka",
+    image: "/icons/islandwide-delivery.png",
   },
   {
     title: "Secure Payments",
     description:
-      "Islandwide shipping worldwide 24/9 Islandwide shipping worldwide 24/9",
-    image: "/sample.png",
+      "Your payments is always safe, secure, and protected at all times",
+    image: "/icons/secure-payment.png",
   },
   {
-    title: "Support Online 25/4",
+    title: "Support Online 24/7",
     description:
-      "Islandwide shipping worldwide 24/9 Islandwide shipping worldwide 24/9",
-    image: "/sample.png",
+      "We are available 24/7 to assist you with any questions you may have",
+    image: "/icons/customer-service.png",
   },
 ];
+
+export const contactDetails = {
+  address: "No 1, Sample Road, Colombo 07",
+  email: "dunescart@gmail.com",
+  phone: "+94 77 123 4567",
+};
