@@ -89,7 +89,7 @@ const Gallery = ({ images }: GalleryProps) => {
   };
 
   return (
-    <div>
+    <div className="max-w-xl">
       <Carousel setApi={setMainApi}>
         <CarouselContent className="m-1">{mainImage}</CarouselContent>
       </Carousel>

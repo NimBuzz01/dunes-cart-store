@@ -11,8 +11,10 @@ interface ModalProps {
 const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-h-screen max-w-3xl overflow-y-auto overflow-x-hidden">
-        {children}
+      <DialogContent className="max-h-screen w-full max-w-3xl overflow-hidden overflow-y-auto">
+        <div className="relative flex w-full items-center overflow-hidden">
+          {children}
+        </div>
       </DialogContent>
     </Dialog>
   );
