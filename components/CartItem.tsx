@@ -37,20 +37,22 @@ const CartItem = ({ item }: CartItemProps) => {
         </div>
       </div>
       <div className="relative mt-1 flex w-full flex-1 flex-col justify-between sm:ml-6 sm:mt-0">
-        <div className="relative h-full w-full pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-          <div className="flex w-full flex-col">
+        <div className="relative flex h-full w-full flex-col pr-9">
+          <div className="flex h-full w-full flex-col md:pr-3">
             <Link
               href={`/products/${item.product.id}`}
-              className="mb-1 w-full text-xl font-semibold transition-all hover:text-cmsecondary"
+              className="w-full text-lg font-semibold transition-all hover:text-cmsecondary sm:mb-1 sm:text-xl"
             >
               {item?.product.name}
             </Link>
-            <p className="text-cmneutral">{item?.product.category.name}</p>
-            <p className="mt-auto flex gap-1 text-cmneutral">
+            <p className="mb-3 text-sm text-cmneutral sm:mb-1 sm:text-base">
+              {item?.product.category.name}
+            </p>
+            <p className="mt-auto flex gap-1 text-sm text-cmneutral sm:text-base">
               <span>Quantity: {item.quantity} x</span>
               <Currency value={item?.product.price} />
             </p>
-            <p className="text-xl">
+            <p className="text-lg sm:text-xl">
               <Currency value={parseInt(item?.product.price) * item.quantity} />
             </p>
           </div>

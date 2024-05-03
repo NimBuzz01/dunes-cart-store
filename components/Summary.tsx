@@ -36,7 +36,7 @@ const Summary = () => {
     window.location = res.data.url;
   };
   return (
-    <div className="mt-16 rounded-md bg-cmneutral/10 px-4 py-6 lg:col-span-4 lg:mt-0 lg:p-6">
+    <div className="mt-16 rounded-md bg-cmneutral/5 px-4 py-6 lg:col-span-4 lg:mt-0 lg:p-6">
       <h2 className="text-lg font-semibold ">Order Summary</h2>
       <div className="my-6 space-y-4">
         <div className="flex items-center justify-between border-t pt-4">

@@ -37,7 +37,7 @@ const FilterModal = ({
           <Filter className="h-5 w-5 text-cmneutral" />
         </Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="max-h-screen overflow-hidden overflow-y-auto scrollbar-thin">
         <DialogHeader>
           <DialogTitle>Filters</DialogTitle>
         </DialogHeader>
