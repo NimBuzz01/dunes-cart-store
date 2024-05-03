@@ -17,9 +17,9 @@ const CartPage = () => {
   if (!isMounted) return null;
 
   return (
-    <div className="container px-4 py-16 sm:px-6 lg:px-8">
+    <div className="container px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
       <CustomTitle text1={"Shopping"} text2={"Cart"} />
-      <div className="mt-12 gap-x-12 lg:grid lg:grid-cols-12 lg:items-start">
+      <div className="mt-6 gap-x-12 sm:mt-12 lg:grid lg:grid-cols-12 lg:items-start">
         <div className="lg:col-span-8">
           {cart.items?.length === 0 ? (
             <>
