@@ -70,7 +70,7 @@ const SideCards = ({ product }: { product: IProduct }) => {
       {product ? (
         <Link href={`/products/${product.id}`}>
           <Card className="flex h-full w-full items-center gap-2 p-2 sm:gap-10 lg:px-4">
-            <div className="relative aspect-square w-36 bg-cmsecondary/10">
+            <div className="relative aspect-square w-32 bg-cmsecondary/10 sm:w-36">
               <Image
                 alt="image"
                 src={product.images[0].url}
@@ -79,8 +79,10 @@ const SideCards = ({ product }: { product: IProduct }) => {
               />
             </div>
             <div className="flex flex-col">
-              <h1 className="font-semibold lg:text-xl">{product.name}</h1>
-              <p className="mb-5 text-sm text-cmneutral">
+              <h1 className="font-semibold md:text-lg lg:text-xl">
+                {product.name}
+              </h1>
+              <p className="mb-5 text-xs text-cmneutral sm:text-sm">
                 {product.category.name}
               </p>
               <p>

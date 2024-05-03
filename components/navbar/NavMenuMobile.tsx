@@ -1,16 +1,11 @@
 "use client";
 import { AiOutlineMenu } from "react-icons/ai";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { navLinks } from "@/lib/data";
+import Image from "next/image";
 
 const NavMenuMobile = () => {
   const router = useRouter();
@@ -26,15 +21,15 @@ const NavMenuMobile = () => {
         </Button>
       </SheetTrigger>
       <SheetContent className="z-[1000] flex w-full flex-col sm:max-w-[450px]">
-        <SheetHeader className="text-xl font-semibold">
-          <SheetTitle>Dunes Cart</SheetTitle>
-        </SheetHeader>
-        <div className="flex flex-col gap-2 overflow-y-auto px-2 py-4 scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-800">
+        <Link href="/">
+          <Image src="/logo.png" alt="Dunes Cart Logo" width={140} height={0} />
+        </Link>
+        <div className="flex flex-col gap-4 overflow-y-auto px-2 py-16 scrollbar-thin scrollbar-track-gray-100 scrollbar-thumb-gray-800">
           {navLinks.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm transition-all hover:text-red-500 lg:text-base"
+              className="text-lg font-semibold transition-all hover:text-cmsecondary"
             >
               {link.name}
             </Link>
