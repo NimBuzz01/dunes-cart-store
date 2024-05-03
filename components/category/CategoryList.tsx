@@ -8,18 +8,20 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import CategoryCard from "./CategoryCard";
+import CustomTitle from "../CustomTitle";
 
 interface CategoryListProps {
   data: ICategory[];
-  title: string;
 }
 
-const CategoryList = ({ data, title }: CategoryListProps) => {
+const CategoryList = ({ data }: CategoryListProps) => {
   return (
     <div className="space-y-4">
-      <h3 className="mb-6 text-xl font-semibold sm:mb-10 sm:text-2xl md:text-3xl">
-        {title}
-      </h3>
+      <CustomTitle
+        text1="Browse By"
+        text2="Category"
+        className="mb-6 sm:mb-10"
+      />
       {data.length === 0 && <NoResults />}
       <Carousel>
         <CarouselContent>

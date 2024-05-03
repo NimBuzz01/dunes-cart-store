@@ -15,11 +15,9 @@ export default async function HomePage() {
     <>
       <HeroBanner banners={banners} />
       <div className="space-y-10 px-3 py-8 sm:container sm:space-y-16 sm:py-16">
-        {categories && (
-          <CategoryList title="Browse By Category" data={categories} />
-        )}
-        {products && <FeaturedList title="Featured Products" data={products} />}
-        <NewArrivals title="New Arrivals" data={products} />
+        {categories && <CategoryList data={categories} />}
+        {products && <FeaturedList data={products} />}
+        <NewArrivals data={products} />
         <DealsBanner />
       </div>
       <Services />

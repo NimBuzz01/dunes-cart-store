@@ -6,21 +6,19 @@ import Image from "next/image";
 import { Card } from "./ui/card";
 import Link from "next/link";
 import Currency from "./Currency";
+import CustomTitle from "./CustomTitle";
 
 interface ProductListProps {
   data: IProduct[];
-  title: string;
 }
 
-const NewArrivals = ({ data, title }: ProductListProps) => {
+const NewArrivals = ({ data }: ProductListProps) => {
   const newArrivals = data.slice(data.length - 4);
 
   return (
     <div className="space-y-4">
       <div className="mb-8 flex flex-wrap items-center justify-between gap-4 sm:mb-10 sm:flex-row">
-        <h3 className="text-xl font-semibold sm:text-2xl md:text-3xl">
-          {title}
-        </h3>
+        <CustomTitle text1="New" text2="Arrivals" />
         <MainButton text="View All Products" href={`/products`} />
       </div>
       {data.length === 0 && <NoResults />}

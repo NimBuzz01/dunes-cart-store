@@ -4,19 +4,17 @@ import ProductCard from "./ProductCard";
 import React from "react";
 import { Button } from "../ui/button";
 import MainButton from "../MainButton";
+import CustomTitle from "../CustomTitle";
 
 interface ProductListProps {
   data: IProduct[];
-  title: string;
 }
 
-const FeaturedList = ({ data, title }: ProductListProps) => {
+const FeaturedList = ({ data }: ProductListProps) => {
   return (
     <div className="space-y-4">
       <div className="mb-10 flex flex-wrap items-center justify-between gap-4 sm:flex-row">
-        <h3 className="text-xl font-semibold sm:text-2xl md:text-3xl">
-          {title}
-        </h3>
+        <CustomTitle text1="Featured" text2="Products" />
         <MainButton text="View All Products" href={`/products`} />
       </div>
       {data.length === 0 && <NoResults />}

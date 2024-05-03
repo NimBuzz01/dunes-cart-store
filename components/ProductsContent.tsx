@@ -20,6 +20,7 @@ import ProductCard from "./product/ProductCard";
 import ProductSkeleton from "./product/ProductSkeleton";
 import EmptyState from "./product/EmptyState";
 import { Button } from "./ui/button";
+import CustomTitle from "./CustomTitle";
 
 const SORT_OPTIONS = [
   { name: "None", value: "none" },
@@ -103,9 +104,7 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
   return (
     <main className="">
       <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-10 sm:pt-16">
-        <h1 className="text-xl font-semibold sm:text-2xl md:text-3xl">
-          Browse All Products
-        </h1>
+        <CustomTitle text1={"Browse All"} text2={"Products"} />
 
         <div className="flex items-center">
           <DropdownMenu>
@@ -119,7 +118,7 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
                 <button
                   key={option.name}
                   className={cn("block w-full px-4 py-2 text-left text-sm", {
-                    "rounded-md bg-cmneutral/10 text-cmprimary":
+                    "rounded-md bg-cmsecondary/10 text-cmsecondary":
                       option.value === sort,
                     "text-cmneutral": option.value !== sort,
                   })}
@@ -149,7 +148,7 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
                   <button
                     className={`${
                       selectedCategories.includes(category.id)
-                        ? "text-cmsecondary"
+                        ? "bg-cmsecondary/10 text-cmsecondary"
                         : "text-cmneutral"
                     } rounded px-2 py-1 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900`}
                     onClick={() => {
@@ -165,8 +164,8 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
             <Accordion type="multiple" className="animate-none">
               {/* Price filter */}
               <AccordionItem value="price">
-                <AccordionTrigger className="py-3 text-sm text-gray-400 hover:text-gray-500">
-                  <span className="font-medium text-gray-900">Price</span>
+                <AccordionTrigger className="py-3 text-sm text-cmneutral hover:text-cmprimary">
+                  <span className="font-medium text-cmprimary">Price</span>
                 </AccordionTrigger>
 
                 <AccordionContent className="animate-none pt-6">

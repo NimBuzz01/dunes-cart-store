@@ -1,6 +1,7 @@
 "use client";
 
 import CartItem from "@/components/CartItem";
+import CustomTitle from "@/components/CustomTitle";
 import Summary from "@/components/Summary";
 import useCart from "@/hooks/useCart";
 import { useState, useEffect } from "react";
@@ -15,9 +16,9 @@ const CartPage = () => {
 
   return (
     <div className="container px-4 py-16 sm:px-6 lg:px-8">
-      <h2 className="text-3xl font-semibold">Shopping Cart</h2>
+      <CustomTitle text1={"Shopping"} text2={"Cart"} />
       <div className="mt-12 gap-x-12 lg:grid lg:grid-cols-12 lg:items-start">
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-8">
           {cart.items?.length === 0 ? (
             <>
               <p className="text-cmneutral">No items in the cart</p>
