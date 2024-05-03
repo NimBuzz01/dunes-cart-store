@@ -1,9 +1,7 @@
 "use client";
 
-import { ReactNode, Fragment } from "react";
-import { Transition, Dialog } from "@headlessui/react";
-import IconButton from "./IconButton";
-import { X } from "lucide-react";
+import { ReactNode } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 
 interface ModalProps {
   isOpen: boolean;
@@ -12,33 +10,11 @@ interface ModalProps {
 }
 const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   return (
-    <Transition show={isOpen} appear as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={onClose}>
-        <div className="fixed inset-0 bg-black bg-opacity-25" />
-        <div className="fixed inset-0 mt-16  overflow-y-auto">
-          <div className="flex min-h-full items-center justify-center text-center sm:p-4">
-            <Transition.Child
-              as={Fragment}
-              enter="ease-out duration-300"
-              enterFrom="opacity-0 scale-95"
-              leaveTo="opacity-0 scale-95"
-              enterTo="opacity-100 scale-100"
-              leaveFrom="opacity-100 scale-100"
-              leave="ease-in duration-200"
-            >
-              <Dialog.Panel className="w-full max-w-3xl overflow-hidden rounded-lg text-left align-middle">
-                <div className="relative flex w-full items-center overflow-hidden bg-white px-4 pb-8 pt-14 shadow-2xl sm:p-6 md:p-6 lg:p-8 ">
-                  <div className="absolute right-4 top-4">
-                    <IconButton onClick={onClose} icon={<X size={20} />} />
-                  </div>
-                  {children}
-                </div>
-              </Dialog.Panel>
-            </Transition.Child>
-          </div>
-        </div>
-      </Dialog>
-    </Transition>
+    <Dialog open={isOpen} onOpenChange={onClose}>
+      <DialogContent className="max-h-screen max-w-3xl overflow-y-auto overflow-x-hidden">
+        {children}
+      </DialogContent>
+    </Dialog>
   );
 };
 

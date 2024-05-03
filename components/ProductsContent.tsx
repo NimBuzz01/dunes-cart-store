@@ -1,4 +1,11 @@
 "use client";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import { ICategory, IProduct } from "@/lib/types";
 import React, { useEffect, useState } from "react";
 
@@ -21,28 +28,14 @@ import ProductSkeleton from "./product/ProductSkeleton";
 import EmptyState from "./product/EmptyState";
 import { Button } from "./ui/button";
 import CustomTitle from "./CustomTitle";
+import FilterModal from "./product/FilterModal";
+import FilterSection from "./product/FilterSection";
 
 const SORT_OPTIONS = [
   { name: "None", value: "none" },
   { name: "Price: Low to High", value: "price-asc" },
   { name: "Price: High to Low", value: "price-desc" },
 ] as const;
-
-const PRICE_FILTERS = {
-  id: "price",
-  name: "Price",
-  options: [
-    { value: [0, 100000], label: "Any Amount" },
-    {
-      value: [0, 5000],
-      label: "Under 5000",
-    },
-    {
-      value: [0, 10000],
-      label: "Under 10000",
-    },
-  ],
-} as const;
 
 interface ProductsContentProps {
   products: IProduct[];
@@ -104,7 +97,7 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
   return (
     <main className="">
       <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-10 sm:pt-16">
-        <CustomTitle text1={"Browse All"} text2={"Products"} />
+        <CustomTitle text1="Browse All" text2="Products" />
 
         <div className="flex items-center">
           <DropdownMenu>
@@ -132,9 +125,13 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Button size="icon" variant="outline" className="lg:hidden">
-            <Filter className="h-5 w-5" />
-          </Button>
+          <FilterModal
+            categories={categories}
+            selectedCategories={selectedCategories}
+            handleCategoryToggle={handleCategoryToggle}
+            setPriceRange={setPriceRange}
+            priceRange={priceRange}
+          />
         </div>
       </div>
 
@@ -142,85 +139,17 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
           {/* Filters */}
           <div className="hidden lg:block">
-            <ul className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
-              {categories.map((category) => (
-                <li key={category.id}>
-                  <button
-                    className={`${
-                      selectedCategories.includes(category.id)
-                        ? "bg-cmsecondary/10 text-cmsecondary"
-                        : "text-cmneutral"
-                    } rounded px-2 py-1 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900`}
-                    onClick={() => {
-                      handleCategoryToggle(category.id);
-                    }}
-                  >
-                    {category.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-
-            <Accordion type="multiple" className="animate-none">
-              {/* Price filter */}
-              <AccordionItem value="price">
-                <AccordionTrigger className="py-3 text-sm text-cmneutral hover:text-cmprimary">
-                  <span className="font-medium text-cmprimary">Price</span>
-                </AccordionTrigger>
-
-                <AccordionContent className="animate-none pt-6">
-                  <ul className="space-y-4">
-                    {PRICE_FILTERS.options.map((option, index) => (
-                      <li key={option.label} className="flex items-center">
-                        <input
-                          type="radio"
-                          id={`price-${index}`}
-                          onChange={() => {
-                            setPriceRange([...option.value]);
-                          }}
-                          checked={
-                            option.value[0] === priceRange[0] &&
-                            option.value[1] === priceRange[1]
-                          }
-                          className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                        />
-                        <label
-                          htmlFor={`price-${index}`}
-                          className="ml-3 text-sm text-gray-600"
-                        >
-                          {option.label}
-                        </label>
-                      </li>
-                    ))}
-                    <li className="flex flex-col justify-center gap-2">
-                      <div className="flex justify-between">
-                        <p className="font-medium">Price</p>
-                        <div>
-                          {priceRange[0]} LKR - {priceRange[1]} LKR
-                        </div>
-                      </div>
-
-                      <Slider
-                        className={cn("opacity-50")}
-                        onValueChange={(range: [number, number]) => {
-                          const [newMin, newMax] = range;
-                          setPriceRange([newMin, newMax]);
-                        }}
-                        value={priceRange}
-                        min={0}
-                        defaultValue={priceRange}
-                        max={100000}
-                        step={5}
-                      />
-                    </li>
-                  </ul>
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
+            <FilterSection
+              categories={categories}
+              selectedCategories={selectedCategories}
+              handleCategoryToggle={handleCategoryToggle}
+              setPriceRange={setPriceRange}
+              priceRange={priceRange}
+            />
           </div>
 
           {/* Product grid */}
-          <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:col-span-3">
+          <ul className="grid grid-cols-1 place-items-center gap-8 sm:grid-cols-2  sm:place-items-start md:grid-cols-3 lg:col-span-3">
             {filteredProducts && filteredProducts.length === 0 ? (
               <EmptyState />
             ) : filteredProducts ? (
