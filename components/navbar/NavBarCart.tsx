@@ -14,6 +14,7 @@ import MainButton from "../MainButton";
 import Image from "next/image";
 import { Trash } from "lucide-react";
 import Currency from "../Currency";
+import CartItem from "./CartItem";
 
 const NavBarCart = () => {
   const cart = useCart();
@@ -37,33 +38,16 @@ const NavBarCart = () => {
           </span>
         )}
       </SheetTrigger>
-      <SheetContent className="z-[1000] flex w-full flex-col sm:max-w-[450px]">
+      <SheetContent className="z-[1000] flex w-full flex-col px-2 sm:max-w-[450px] sm:px-4">
         <SheetHeader className="text-xl font-semibold">
           <SheetTitle>My Cart</SheetTitle>
         </SheetHeader>
-        <div className="flex flex-col gap-2 overflow-y-auto px-2 py-4 scrollbar-thin scrollbar-track-cmbackground scrollbar-thumb-cmprimary">
+        <div className="flex flex-col gap-2 overflow-y-auto pb-2 scrollbar-thin scrollbar-track-cmbackground scrollbar-thumb-cmprimary">
           {cart.items.length === 0 ? (
             <p>Cart Empty</p>
           ) : (
             cart.items.map((item) => (
-              <div key={item.product.id}>
-                <Image
-                  src={item.product.images[0].url}
-                  alt={item.product.name}
-                  width={50}
-                  height={50}
-                />
-                <p>{item.product.name}</p>
-                <p>{item.quantity}</p>
-                <Button
-                  size="icon"
-                  onClick={() => {
-                    cart.removeItem(item.product.id);
-                  }}
-                >
-                  <Trash />
-                </Button>
-              </div>
+              <CartItem item={item} key={item.product.id} />
             ))
           )}
         </div>

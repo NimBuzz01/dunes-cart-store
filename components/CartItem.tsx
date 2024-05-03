@@ -1,19 +1,27 @@
-"use client";
-import { IOrderItem, IProduct } from "@/lib/types";
+import { IOrderItem } from "@/lib/types";
 import Image from "next/image";
-import React from "react";
-import { X } from "lucide-react";
+import React, { MouseEventHandler } from "react";
+import { Expand, X } from "lucide-react";
 import useCart from "@/hooks/useCart";
-import { Button } from "./ui/button";
+import IconButton from "./IconButton";
+import Currency from "./Currency";
+import Link from "next/link";
+import usePreviewModal from "@/hooks/useModal";
 
 interface CartItemProps {
   item: IOrderItem;
 }
 const CartItem = ({ item }: CartItemProps) => {
   const cart = useCart();
+  const previewModal = usePreviewModal();
+
+  const onPreview: MouseEventHandler<HTMLButtonElement> = (e) => {
+    e.stopPropagation();
+    previewModal.onOpen(item.product);
+  };
   return (
-    <li className="flex border-b py-6">
-      <div className="relative h-24 w-24 overflow-hidden rounded-md sm:h-48 sm:w-48">
+    <li className="relative flex flex-col border-b py-6 sm:flex-row">
+      <div className="relative aspect-square w-24 overflow-hidden rounded-md bg-cmsecondary/10 sm:h-48 sm:w-48">
         <Image
           alt="Image"
           src={item.product.images?.[0]?.url}
@@ -21,23 +29,38 @@ const CartItem = ({ item }: CartItemProps) => {
           fill
           className="object-cover object-center"
         />
-      </div>
-      <div className="relative ml-4 flex flex-1 flex-col justify-between sm:ml-6">
-        <div className="absolute right-2 top-2">
-          <Button
-            onClick={() => cart.removeItem(item?.product.id)}
-            size="icon"
-            variant="outline"
-          >
-            <X size={16} color="red" />
-          </Button>
+        <div className="absolute bottom-2 right-2">
+          <IconButton
+            onClick={onPreview}
+            icon={<Expand size={20} className="text-cmneutral" />}
+          />
         </div>
-        <div className="relative pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
-          <div className="flex justify-between">
-            <p className="text-lg font-semibold">{item?.product.name}</p>
-            <p className="text-lg font-semibold">{item?.quantity}</p>
+      </div>
+      <div className="relative mt-1 flex w-full flex-1 flex-col justify-between sm:ml-6 sm:mt-0">
+        <div className="relative h-full w-full pr-9 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:pr-0">
+          <div className="flex w-full flex-col">
+            <Link
+              href={`/products/${item.product.id}`}
+              className="mb-1 w-full text-xl font-semibold transition-all hover:text-cmsecondary"
+            >
+              {item?.product.name}
+            </Link>
+            <p className="text-cmneutral">{item?.product.category.name}</p>
+            <p className="mt-auto flex gap-1 text-cmneutral">
+              <span>Quantity: {item.quantity} x</span>
+              <Currency value={item?.product.price} />
+            </p>
+            <p className="text-xl">
+              <Currency value={parseInt(item?.product.price) * item.quantity} />
+            </p>
           </div>
         </div>
+      </div>
+      <div className="absolute right-2 top-4">
+        <IconButton
+          onClick={() => cart.removeItem(item?.product.id)}
+          icon={<X size={20} color="red" />}
+        />
       </div>
     </li>
   );

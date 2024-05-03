@@ -4,6 +4,8 @@ import CartItem from "@/components/CartItem";
 import CustomTitle from "@/components/CustomTitle";
 import Summary from "@/components/Summary";
 import useCart from "@/hooks/useCart";
+import { ArrowLeft } from "lucide-react";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const CartPage = () => {
@@ -24,11 +26,20 @@ const CartPage = () => {
               <p className="text-cmneutral">No items in the cart</p>
             </>
           ) : (
-            <ul>
-              {cart.items?.map((item) => (
-                <CartItem item={item} key={item.product.id} />
-              ))}
-            </ul>
+            <>
+              <ul>
+                {cart.items?.map((item) => (
+                  <CartItem item={item} key={item.product.id} />
+                ))}
+              </ul>
+              <Link
+                className="mt-10 flex items-center gap-2 font-semibold transition-all hover:text-cmsecondary"
+                href={"/products"}
+              >
+                <ArrowLeft />
+                Continue Shopping
+              </Link>
+            </>
           )}
         </div>
         <Summary />
