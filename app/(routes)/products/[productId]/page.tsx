@@ -1,7 +1,7 @@
 import { getProduct, getProducts } from "@/actions/actions";
 import ProductInfo from "@/components/product/ProductInfo";
-import ProductList from "@/components/product/ProductList";
 import Gallery from "@/components/Gallery";
+import RelatedList from "@/components/product/RelatedList";
 
 interface ProductPageProps {
   params: {
@@ -23,7 +23,7 @@ const ProductPage = async ({ params }: ProductPageProps) => {
         </div>
       </div>
       <hr className="my-10" />
-      <ProductList title="Related Products" data={suggestedProducts} />
+      <RelatedList data={suggestedProducts} />
     </div>
   );
 };

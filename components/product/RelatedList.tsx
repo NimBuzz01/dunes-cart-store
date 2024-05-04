@@ -5,20 +5,18 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import React from "react";
+import CustomTitle from "../CustomTitle";
 
 interface ProductListProps {
   data: IProduct[];
-  title: string;
 }
 
-const ProductList = ({ data, title }: ProductListProps) => {
+const RelatedList = ({ data }: ProductListProps) => {
   return (
     <div className="space-y-4">
-      <h3 className="mb-10 text-xl font-semibold lg:text-2xl">{title}</h3>
+      <CustomTitle text1={"Related Products"} text2={""} />
       {data.length === 0 && <NoResults />}
       <Carousel>
         <CarouselContent>
@@ -31,11 +29,9 @@ const ProductList = ({ data, title }: ProductListProps) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* <CarouselPrevious />
-        <CarouselNext /> */}
       </Carousel>
     </div>
   );
 };
 
-export default ProductList;
+export default RelatedList;

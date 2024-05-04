@@ -5,7 +5,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <div>
+    <div className="space-y-16 px-3 py-16 sm:container">
       <FAQ />
       <TermsNConditions />
       <PrivacyPolicy />

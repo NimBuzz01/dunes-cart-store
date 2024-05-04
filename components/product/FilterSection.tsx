@@ -61,7 +61,7 @@ const FilterSection = ({
           </li>
         ))}
       </ul>
-      <Accordion type="multiple" className="animate-none">
+      <Accordion type="multiple">
         {/* Price filter */}
         <AccordionItem value="price">
           <AccordionTrigger className="py-3 text-sm text-cmneutral hover:text-cmprimary">
