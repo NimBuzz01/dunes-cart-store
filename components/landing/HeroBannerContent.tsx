@@ -1,5 +1,5 @@
 import { Star } from "lucide-react";
-import MainButton from "./MainButton";
+import MainButton from "../MainButton";
 import { ICollection } from "@/lib/types";
 import Image from "next/image";
 

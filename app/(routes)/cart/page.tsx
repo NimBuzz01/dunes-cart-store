@@ -1,8 +1,8 @@
 "use client";
 
-import CartItem from "@/components/CartItem";
+import CartItem from "@/components/cart/CartItem";
 import CustomTitle from "@/components/CustomTitle";
-import Summary from "@/components/Summary";
+import Summary from "@/components/cart/Summary";
 import useCart from "@/hooks/useCart";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";

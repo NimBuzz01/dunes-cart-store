@@ -1,12 +1,12 @@
 import React from "react";
-import MainButton from "./MainButton";
+import MainButton from "../MainButton";
 import { IProduct } from "@/lib/types";
-import NoResults from "./NoResults";
+import NoResults from "../NoResults";
 import Image from "next/image";
-import { Card } from "./ui/card";
+import { Card } from "../ui/card";
 import Link from "next/link";
-import Currency from "./Currency";
-import CustomTitle from "./CustomTitle";
+import Currency from "../Currency";
+import CustomTitle from "../CustomTitle";
 
 interface ProductListProps {
   data: IProduct[];

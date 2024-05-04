@@ -37,7 +37,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
     cart.addItem(order);
   };
   return (
-    <div onClick={handleClick} className="group w-80 cursor-pointer space-y-2">
+    <div
+      onClick={handleClick}
+      className="group w-full max-w-[20rem] cursor-pointer space-y-2"
+    >
       <div className="relative aspect-square bg-cmsecondary/10">
         <Image
           alt="image"

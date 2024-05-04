@@ -1,4 +1,4 @@
-import { contactDetails } from "@/lib/data";
+import { companyInfo, developerInfo } from "@/lib/data";
 import { FacebookIcon, InstagramIcon, Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,15 +20,15 @@ const Footer = () => {
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2 text-sm">
                 <Phone className="h-5 w-5 text-background" />
-                <p>{contactDetails.phone}</p>
+                <p>{companyInfo.phone}</p>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <Mail className="h-5 w-5 text-background" />
-                <p>{contactDetails.email}</p>
+                <p>{companyInfo.email}</p>
               </div>
               <div className="flex items-center gap-2 text-sm">
                 <MapPin className="h-5 w-5 text-background" />
-                <p>{contactDetails.address}</p>
+                <p>{companyInfo.address}</p>
               </div>
             </div>
           </div>
@@ -38,22 +38,22 @@ const Footer = () => {
               <h2 className="mb-6 font-semibold uppercase">Quick Links</h2>
               <ul className="text-sm font-medium text-cmbackground transition-all">
                 <li className="mb-4">
-                  <a href="#" className="hover:text-cmsecondary">
+                  <a href="/" className="hover:text-cmsecondary">
                     Home
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:text-cmsecondary">
+                  <a href="/products" className="hover:text-cmsecondary">
                     Products
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:text-cmsecondary">
+                  <a href="/about" className="hover:text-cmsecondary">
                     About Us
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:text-cmsecondary">
+                  <a href="/contact" className="hover:text-cmsecondary">
                     Contact Us
                   </a>
                 </li>
@@ -63,12 +63,18 @@ const Footer = () => {
               <h2 className="mb-6 font-semibold uppercase ">Follow us</h2>
               <ul className="text-sm font-medium text-cmbackground transition-all">
                 <li className="mb-4">
-                  <a href="#" className="hover:text-cmsecondary">
+                  <a
+                    href={companyInfo.instagramLink}
+                    className="hover:text-cmsecondary"
+                  >
                     Instagram
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-cmsecondary">
+                  <a
+                    href={companyInfo.facebookLink}
+                    className="hover:text-cmsecondary"
+                  >
                     Facebook
                   </a>
                 </li>
@@ -78,17 +84,23 @@ const Footer = () => {
               <h2 className="mb-6 font-semibold uppercase">Resources</h2>
               <ul className="text-sm font-medium text-cmbackground transition-all">
                 <li className="mb-4">
-                  <a href="#" className="hover:text-cmsecondary">
+                  <a href="/help#faq" className="hover:text-cmsecondary">
                     FAQ
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="#" className="hover:text-cmsecondary">
+                  <a
+                    href="/help#privacy-policy"
+                    className="hover:text-cmsecondary"
+                  >
                     Privacy Policy
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-cmsecondary">
+                  <a
+                    href="/help#terms-n-conditions"
+                    className="hover:text-cmsecondary"
+                  >
                     Terms &amp; Conditions
                   </a>
                 </li>

@@ -18,11 +18,9 @@ const FeaturedList = ({ data }: ProductListProps) => {
         <MainButton text="View All Products" href={`/products`} />
       </div>
       {data.length === 0 && <NoResults />}
-      <div className="flex flex-wrap justify-center gap-4">
+      <div className="grid grid-cols-1 place-items-center justify-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {data.slice(0, 8).map((item) => (
-          <div key={item.id} className="mb-4">
-            <ProductCard product={item} />
-          </div>
+          <ProductCard product={item} key={item.id} />
         ))}
       </div>
     </div>

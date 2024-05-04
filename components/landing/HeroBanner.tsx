@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { Carousel, CarouselContent, CarouselItem } from "./ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "../ui/carousel";
 import HeroBannerContent from "./HeroBannerContent";
 import Autoplay from "embla-carousel-autoplay";
 import { ICollection } from "@/lib/types";

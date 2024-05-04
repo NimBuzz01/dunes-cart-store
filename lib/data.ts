@@ -2,7 +2,7 @@ export const navLinks = [
   { name: "Home", href: "/" },
   { name: "All Products", href: "/products" },
   { name: "About Us", href: "/about" },
-  { name: "FAQ", href: "/faq" },
+  { name: "FAQ", href: "/help#faq" },
   { name: "Contact", href: "/contact" },
 ];
 
@@ -26,8 +26,15 @@ export const services = [
   },
 ];
 
-export const contactDetails = {
+export const companyInfo = {
   address: "No 1, Sample Road, Colombo 07",
   email: "dunescart@gmail.com",
   phone: "+94 77 123 4567",
+  instagramLink: "",
+  facebookLink: "",
+};
+
+export const developerInfo = {
+  name: "Niamat Marjan",
+  portfolioLink: "https://niamatmarjan.vercel.app/",
 };

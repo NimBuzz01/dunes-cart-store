@@ -3,8 +3,8 @@ import Image from "next/image";
 import React, { MouseEventHandler } from "react";
 import { Expand, X } from "lucide-react";
 import useCart from "@/hooks/useCart";
-import IconButton from "./IconButton";
-import Currency from "./Currency";
+import IconButton from "../IconButton";
+import Currency from "../Currency";
 import Link from "next/link";
 import usePreviewModal from "@/hooks/useModal";
 

@@ -1,5 +1,5 @@
 import { BadgePercent } from "lucide-react";
-import MainButton from "./MainButton";
+import MainButton from "../MainButton";
 import Image from "next/image";
 
 const DealsBanner = () => {

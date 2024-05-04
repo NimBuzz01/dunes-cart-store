@@ -1,6 +1,5 @@
 import { getCategories, getProducts } from "@/actions/actions";
-import ProductsContent from "@/components/ProductsContent";
-import ProductCard from "@/components/product/ProductCard";
+import ProductsContent from "@/components/product/ProductsContent";
 import React from "react";
 
 const Products = async () => {

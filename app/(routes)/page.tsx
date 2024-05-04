@@ -1,8 +1,8 @@
 import { getCategories, getCollections, getProducts } from "@/actions/actions";
-import DealsBanner from "@/components/DealsBanner";
-import HeroBanner from "@/components/HeroBanner";
-import NewArrivals from "@/components/NewArrivals";
-import Services from "@/components/Services";
+import DealsBanner from "@/components/landing/DealsBanner";
+import HeroBanner from "@/components/landing/HeroBanner";
+import NewArrivals from "@/components/landing/NewArrivals";
+import Services from "@/components/landing/Services";
 import CategoryList from "@/components/category/CategoryList";
 import FeaturedList from "@/components/product/FeaturedList";
 

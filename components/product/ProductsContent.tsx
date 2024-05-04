@@ -23,13 +23,13 @@ import {
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { ChevronDown, Filter } from "lucide-react";
-import ProductCard from "./product/ProductCard";
-import ProductSkeleton from "./product/ProductSkeleton";
-import EmptyState from "./product/EmptyState";
-import { Button } from "./ui/button";
-import CustomTitle from "./CustomTitle";
-import FilterModal from "./product/FilterModal";
-import FilterSection from "./product/FilterSection";
+import ProductCard from "./ProductCard";
+import ProductSkeleton from "./ProductSkeleton";
+import EmptyState from "./EmptyState";
+import { Button } from "../ui/button";
+import CustomTitle from "../CustomTitle";
+import FilterModal from "./FilterModal";
+import FilterSection from "./FilterSection";
 
 const SORT_OPTIONS = [
   { name: "None", value: "none" },
