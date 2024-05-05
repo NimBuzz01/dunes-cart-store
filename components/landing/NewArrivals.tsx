@@ -79,13 +79,13 @@ const SideCards = ({ product }: { product: IProduct }) => {
               />
             </div>
             <div className="flex flex-col">
-              <h1 className="font-semibold md:text-lg lg:text-xl">
+              <h1 className="text-sm font-semibold sm:text-base md:text-lg lg:text-xl">
                 {product.name}
               </h1>
               <p className="mb-5 text-xs text-cmneutral sm:text-sm">
                 {product.category.name}
               </p>
-              <p>
+              <p className="text-sm font-semibold sm:text-base md:text-lg lg:text-xl">
                 <Currency value={product.price} />
               </p>
             </div>

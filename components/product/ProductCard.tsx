@@ -4,7 +4,7 @@ import { MouseEventHandler } from "react";
 import { IOrderItem, IProduct } from "@/lib/types";
 import Image from "next/image";
 import IconButton from "../IconButton";
-import { Expand } from "lucide-react";
+import { Expand, ShoppingCart } from "lucide-react";
 import Currency from "../Currency";
 import { useRouter } from "next/navigation";
 import usePreviewModal from "@/hooks/useModal";
@@ -51,11 +51,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="absolute bottom-5 block w-full px-6 opacity-0 transition group-hover:opacity-100">
           <div className="flex justify-center gap-x-2">
             <Button
-              className="bg-cmsecondary transition-all hover:scale-105 hover:bg-cmsecondary/90"
+              className="hidden bg-cmsecondary transition-all hover:scale-105 hover:bg-cmsecondary/90 sm:block"
               onClick={onAddToCart}
             >
               Add To Cart
             </Button>
+            <IconButton
+              className="sm:hidden"
+              onClick={onPreview}
+              icon={<ShoppingCart size={20} className="text-cmsecondary" />}
+            />
             <IconButton
               onClick={onPreview}
               icon={<Expand size={20} className="text-cmneutral" />}
@@ -65,10 +70,12 @@ const ProductCard = ({ product }: ProductCardProps) => {
       </div>
       {/** Description */}
       <div className="">
-        <p className="text-lg font-semibold">{product?.name}</p>
-        <p className="text-sm text-cmneutral">{product?.category?.name}</p>
+        <p className="text-sm font-semibold sm:text-lg">{product?.name}</p>
+        <p className="text-xs text-cmneutral sm:text-sm">
+          {product?.category?.name}
+        </p>
       </div>
-      <div className="flex items-center justify-between text-lg">
+      <div className="flex items-center justify-between text-sm  sm:text-lg">
         <Currency value={product?.price} />
       </div>
     </div>

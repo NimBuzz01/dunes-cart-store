@@ -149,7 +149,7 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
           </div>
 
           {/* Product grid */}
-          <ul className="grid grid-cols-1 place-items-center gap-8 sm:grid-cols-2  sm:place-items-start md:grid-cols-3 lg:col-span-3">
+          <ul className="grid grid-cols-2 place-items-start gap-2 sm:gap-8 md:grid-cols-3 lg:col-span-3">
             {filteredProducts && filteredProducts.length === 0 ? (
               <EmptyState />
             ) : filteredProducts ? (
