@@ -69,8 +69,8 @@ const SideCards = ({ product }: { product: IProduct }) => {
     <>
       {product ? (
         <Link href={`/products/${product.id}`}>
-          <Card className="flex h-full w-full items-center gap-2 p-2 sm:gap-10 lg:px-4">
-            <div className="relative aspect-square w-32 bg-cmsecondary/10 sm:w-36">
+          <Card className="flex h-28 w-full items-center gap-2 rounded-none sm:h-48 sm:gap-10 lg:h-full">
+            <div className="relative aspect-square h-full bg-cmsecondary/10">
               <Image
                 alt="image"
                 src={product.images[0].url}

@@ -4,6 +4,8 @@ import usePreviewModal from "@/hooks/useModal";
 import Modal from "./Modal";
 import Gallery from "./Gallery";
 import ProductInfo from "@/components/product/ProductInfo";
+import IconButton from "./IconButton";
+import { X } from "lucide-react";
 
 const PreviewModal = () => {
   const previewModal = usePreviewModal();
@@ -19,6 +21,11 @@ const PreviewModal = () => {
 
         <ProductInfo data={product} />
       </div>
+      <IconButton
+        onClick={previewModal.onClose}
+        icon={<X size={20} />}
+        className="absolute right-0 top-0 text-red-500"
+      />
     </Modal>
   );
 };
