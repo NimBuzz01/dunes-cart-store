@@ -7,12 +7,24 @@ import NavMenuMobile from "./NavMenuMobile";
 import NavBarSearch from "./NavBarSearch";
 import NavBarCart from "./NavBarCart";
 import Image from "next/image";
+import { getCategories, getCollections, getProducts } from "@/actions/actions";
+import useStore from "@/hooks/useStore";
 
 const NavBar = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const { setCollections, setCategories, setProducts } = useStore();
 
   useEffect(() => {
+    const fetchData = async () => {
+      const products = await getProducts({ isFeatured: false });
+      setProducts(products);
+      const categories = await getCategories();
+      setCategories(categories);
+      const collections = await getCollections();
+      setCollections(collections);
+    };
     setIsMounted(true);
+    fetchData();
   }, []);
 
   if (!isMounted) return null;

@@ -11,8 +11,6 @@ import {
 import useCart from "@/hooks/useCart";
 import { Button } from "../ui/button";
 import MainButton from "../MainButton";
-import Image from "next/image";
-import { Trash } from "lucide-react";
 import Currency from "../Currency";
 import CartItem from "./CartItem";
 

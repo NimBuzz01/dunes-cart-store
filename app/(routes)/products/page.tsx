@@ -1,10 +1,10 @@
-import { getCategories, getProducts } from "@/actions/actions";
+"use client";
 import ProductsContent from "@/components/product/ProductsContent";
+import useStore from "@/hooks/useStore";
 import React from "react";
 
-const Products = async () => {
-  const products = await getProducts({});
-  const categories = await getCategories();
+const Products = () => {
+  const { products, categories } = useStore();
 
   return (
     <div className="px-3 sm:container">

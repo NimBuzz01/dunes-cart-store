@@ -2,7 +2,6 @@ import { IProduct } from "@/lib/types";
 import NoResults from "../NoResults";
 import ProductCard from "./ProductCard";
 import React from "react";
-import { Button } from "../ui/button";
 import MainButton from "../MainButton";
 import CustomTitle from "../CustomTitle";
 
@@ -11,6 +10,7 @@ interface ProductListProps {
 }
 
 const FeaturedList = ({ data }: ProductListProps) => {
+  const featured = data.filter((product) => product.isFeatured);
   return (
     <div className="space-y-4">
       <div className="mb-10 flex flex-wrap items-center justify-between gap-4 sm:flex-row">
@@ -19,7 +19,7 @@ const FeaturedList = ({ data }: ProductListProps) => {
       </div>
       {data.length === 0 && <NoResults />}
       <div className="grid grid-cols-2 place-items-center justify-center gap-4 md:grid-cols-3 lg:grid-cols-4">
-        {data.slice(0, 8).map((item) => (
+        {featured.slice(0, 8).map((item) => (
           <ProductCard product={item} key={item.id} />
         ))}
       </div>

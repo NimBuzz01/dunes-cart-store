@@ -11,15 +11,16 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { AiOutlineSearch } from "react-icons/ai";
-import IconButton from "../IconButton";
 import { useEffect, useState } from "react";
 import { IProduct } from "@/lib/types";
+import useStore from "@/hooks/useStore";
+import SearchItem from "./SearchItem";
 
 const SearchModal = () => {
   const [search, setSearch] = useState("");
   const [filteredProducts, setFilteredProducts] = useState<IProduct[]>([]);
-
-  const products: IProduct[] = [];
+  const { products } = useStore();
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (search !== "") {
@@ -27,18 +28,20 @@ const SearchModal = () => {
         product.name.toLowerCase().includes(search.toLowerCase()),
       );
       setFilteredProducts(filteredProducts);
+    } else {
+      setFilteredProducts([]);
     }
   }, [search]);
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button size="icon" className="rounded-full" variant="ghost">
           <AiOutlineSearch className="h-6 w-6 text-cmneutral" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="h-screen sm:h-[80dvh]">
-        <div className="flex flex-col">
+      <DialogContent className="w-full px-3 py-0 sm:max-w-3xl sm:px-6">
+        <div className="flex h-screen w-full flex-col sm:h-[80dvh]">
           <div className="mt-8 flex space-x-2">
             <div className="flex w-full">
               <Label htmlFor="link" className="sr-only">
@@ -52,11 +55,13 @@ const SearchModal = () => {
                 className="w-full grow"
               />
             </div>
-            <Button size="icon" variant="outline">
-              <AiOutlineSearch className="h-6 w-6 text-cmneutral" />
-            </Button>
+            <DialogClose>
+              <Button size="icon" variant="outline">
+                <X className="h-6 w-6 text-red-500" />
+              </Button>
+            </DialogClose>
           </div>
-          <div className="mt-4 h-full overflow-hidden overflow-y-auto">
+          <div className="my-4 flex h-full flex-col space-y-2 overflow-hidden overflow-y-auto">
             {filteredProducts.length === 0 && search !== "" && (
               <div className="mt-4 text-center text-cmneutral">
                 No products found
@@ -64,7 +69,11 @@ const SearchModal = () => {
             )}
             {filteredProducts.length > 0
               ? filteredProducts.map((product) => (
-                  <div key={product.id}>{product.name}</div>
+                  <SearchItem
+                    key={product.id}
+                    product={product}
+                    setOpen={setOpen}
+                  />
                 ))
               : search === "" && (
                   <div className="mt-4 text-center text-cmneutral">
@@ -73,12 +82,6 @@ const SearchModal = () => {
                 )}
           </div>
         </div>
-        <DialogClose>
-          <IconButton
-            icon={<X size={20} />}
-            className="absolute right-2 top-2 text-red-500"
-          />
-        </DialogClose>
       </DialogContent>
     </Dialog>
   );

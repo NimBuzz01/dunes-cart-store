@@ -1,23 +1,26 @@
-import { getCategories, getCollections, getProducts } from "@/actions/actions";
+"use client";
 import DealsBanner from "@/components/landing/DealsBanner";
 import HeroBanner from "@/components/landing/HeroBanner";
 import NewArrivals from "@/components/landing/NewArrivals";
 import Services from "@/components/landing/Services";
 import CategoryList from "@/components/category/CategoryList";
 import FeaturedList from "@/components/product/FeaturedList";
+import useStore from "@/hooks/useStore";
 
-export default async function HomePage() {
-  const products = await getProducts({ isFeatured: true });
-  const categories = await getCategories();
-  const collections = await getCollections();
+export default function HomePage() {
+  const { products, categories, collections } = useStore();
 
   return (
     <>
-      <HeroBanner collections={collections} />
+      {collections && <HeroBanner collections={collections} />}
       <div className="space-y-10 px-3 py-8 sm:container sm:space-y-16 sm:py-16">
-        <CategoryList data={categories} />
-        <FeaturedList data={products} />
-        <NewArrivals data={products} />
+        {categories && <CategoryList data={categories} />}
+        {products && (
+          <>
+            <FeaturedList data={products} />
+            <NewArrivals data={products} />
+          </>
+        )}
         <DealsBanner />
       </div>
       <Services />
