@@ -49,7 +49,7 @@ const FilterSection = ({
             <button
               className={`${
                 selectedCategories.includes(category.id)
-                  ? "bg-cmsecondary/10 text-cmsecondary"
+                  ? "bg-cmaccent/10 text-cmaccent"
                   : "text-cmneutral"
               } rounded px-2 py-1 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900`}
               onClick={() => {

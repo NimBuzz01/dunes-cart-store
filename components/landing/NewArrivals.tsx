@@ -21,24 +21,27 @@ const NewArrivals = ({ data }: ProductListProps) => {
         <CustomTitle text1="New" text2="Arrivals" />
         <MainButton text="View All Products" href={`/products`} />
       </div>
-      {data.length === 0 && <NoResults />}
-      <div className="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:gap-4">
-        <div className="hidden lg:row-span-3 lg:block">
-          <BigCard product={newArrivals[0]} />
+      {newArrivals.length > 0 ? (
+        <div className="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:gap-4">
+          <div className="hidden lg:row-span-3 lg:block">
+            <BigCard product={newArrivals[0]} />
+          </div>
+          <div className="lg:hidden">
+            <SideCards product={newArrivals[0]} />
+          </div>
+          <div>
+            <SideCards product={newArrivals[1]} />
+          </div>
+          <div className="lg:col-start-2">
+            <SideCards product={newArrivals[2]} />
+          </div>
+          <div className="lg:col-start-2 lg:row-start-3">
+            <SideCards product={newArrivals[3]} />
+          </div>
         </div>
-        <div className="lg:hidden">
-          <SideCards product={newArrivals[0]} />
-        </div>
-        <div>
-          <SideCards product={newArrivals[1]} />
-        </div>
-        <div className="lg:col-start-2">
-          <SideCards product={newArrivals[2]} />
-        </div>
-        <div className="lg:col-start-2 lg:row-start-3">
-          <SideCards product={newArrivals[3]} />
-        </div>
-      </div>
+      ) : (
+        <NoResults />
+      )}
     </div>
   );
 };
@@ -47,7 +50,7 @@ export default NewArrivals;
 
 const BigCard = ({ product }: { product: IProduct }) => {
   return (
-    <Card className="flex w-full flex-col items-center bg-cmsecondary/10 p-8">
+    <Card className="flex w-full flex-col items-center bg-cmaccent/10 p-8">
       <h1 className="mb-5 self-start text-4xl font-semibold">{product.name}</h1>
       <div className="w-44 self-start">
         <MainButton text="Shop Now" href={`/products/${product.id}`} />
@@ -70,7 +73,7 @@ const SideCards = ({ product }: { product: IProduct }) => {
       {product ? (
         <Link href={`/products/${product.id}`}>
           <Card className="flex h-28 w-full items-center gap-2 rounded-none sm:h-48 sm:gap-10 lg:h-full">
-            <div className="relative aspect-square h-full bg-cmsecondary/10">
+            <div className="relative aspect-square h-full bg-cmaccent/10">
               <Image
                 alt="image"
                 src={product.images[0].url}

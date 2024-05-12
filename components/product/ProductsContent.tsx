@@ -111,7 +111,7 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
                 <button
                   key={option.name}
                   className={cn("block w-full px-4 py-2 text-left text-sm", {
-                    "rounded-md bg-cmsecondary/10 text-cmsecondary":
+                    "bg-cmaccent/10 text-cmaccent rounded-md":
                       option.value === sort,
                     "text-cmneutral": option.value !== sort,
                   })}

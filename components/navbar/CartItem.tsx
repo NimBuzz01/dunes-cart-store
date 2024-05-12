@@ -20,7 +20,7 @@ const CartItem = ({ item }: CartItemProps) => {
       key={item.product.id}
       className="relative flex w-full gap-2 border-b border-none py-4"
     >
-      <div className="relative aspect-square w-28 bg-cmsecondary/10">
+      <div className="bg-cmaccent/10 relative aspect-square w-28">
         <Image
           src={item.product.images[0].url}
           alt={item.product.name}
@@ -31,7 +31,7 @@ const CartItem = ({ item }: CartItemProps) => {
       <div className="flex w-full flex-col pr-6">
         <Link
           href={`/products/${item.product.id}`}
-          className="mb-1 text-sm transition-all hover:text-cmsecondary"
+          className="hover:text-cmaccent mb-1 text-sm transition-all"
         >
           {item.product.name}
         </Link>

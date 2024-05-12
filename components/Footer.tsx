@@ -5,7 +5,7 @@ import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="border-t bg-cmprimary text-cmbackground">
+    <footer className="border-t bg-cmprimary text-cmsecondary">
       <div className="container mx-auto w-full p-4">
         <div className="py-6 md:flex md:justify-between">
           <div className="mb-10 space-y-8 md:mb-0">
@@ -36,24 +36,24 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-6">
             <div>
               <h2 className="mb-6 font-semibold uppercase">Quick Links</h2>
-              <ul className="text-sm font-medium text-cmbackground transition-all">
+              <ul className="text-sm font-medium text-cmsecondary transition-all">
                 <li className="mb-4">
-                  <a href="/" className="hover:text-cmsecondary">
+                  <a href="/" className="hover:text-cmaccent">
                     Home
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="/products" className="hover:text-cmsecondary">
+                  <a href="/products" className="hover:text-cmaccent">
                     Products
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="/about" className="hover:text-cmsecondary">
+                  <a href="/about" className="hover:text-cmaccent">
                     About Us
                   </a>
                 </li>
                 <li className="mb-4">
-                  <a href="/contact" className="hover:text-cmsecondary">
+                  <a href="/contact" className="hover:text-cmaccent">
                     Contact Us
                   </a>
                 </li>
@@ -61,11 +61,11 @@ const Footer = () => {
             </div>
             <div>
               <h2 className="mb-6 font-semibold uppercase ">Follow us</h2>
-              <ul className="text-sm font-medium text-cmbackground transition-all">
+              <ul className="text-sm font-medium text-cmsecondary transition-all">
                 <li className="mb-4">
                   <a
                     href={companyInfo.instagramLink}
-                    className="hover:text-cmsecondary"
+                    className="hover:text-cmaccent"
                   >
                     Instagram
                   </a>
@@ -73,7 +73,7 @@ const Footer = () => {
                 <li>
                   <a
                     href={companyInfo.facebookLink}
-                    className="hover:text-cmsecondary"
+                    className="hover:text-cmaccent"
                   >
                     Facebook
                   </a>
@@ -82,16 +82,16 @@ const Footer = () => {
             </div>
             <div>
               <h2 className="mb-6 font-semibold uppercase">Resources</h2>
-              <ul className="text-sm font-medium text-cmbackground transition-all">
+              <ul className="text-sm font-medium text-cmsecondary transition-all">
                 <li className="mb-4">
-                  <a href="/help#faq" className="hover:text-cmsecondary">
+                  <a href="/help#faq" className="hover:text-cmaccent">
                     FAQ
                   </a>
                 </li>
                 <li className="mb-4">
                   <a
                     href="/help#privacy-policy"
-                    className="hover:text-cmsecondary"
+                    className="hover:text-cmaccent"
                   >
                     Privacy Policy
                   </a>
@@ -99,7 +99,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/help#terms-n-conditions"
-                    className="hover:text-cmsecondary"
+                    className="hover:text-cmaccent"
                   >
                     Terms &amp; Conditions
                   </a>
@@ -109,9 +109,9 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t pt-3 sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-cmbackground sm:text-center">
+          <span className="text-sm text-cmsecondary sm:text-center">
             © 2024{" "}
-            <a href="#" className="transition-all hover:text-cmsecondary">
+            <a href="#" className="hover:text-cmaccent transition-all">
               Dunes Cart™
             </a>
             . All Rights Reserved.
@@ -119,14 +119,14 @@ const Footer = () => {
           <div className="mt-4 flex sm:mt-0 sm:justify-center">
             <a
               href="#"
-              className="text-cmbackground transition-all hover:text-cmsecondary"
+              className="hover:text-cmaccent text-cmsecondary transition-all"
             >
               <FacebookIcon className="h-6 w-6" />
               <span className="sr-only">Facebook page</span>
             </a>
             <a
               href="#"
-              className="ms-5 text-cmbackground transition-all hover:text-cmsecondary"
+              className="hover:text-cmaccent ms-5 text-cmsecondary transition-all"
             >
               <InstagramIcon className="h-6 w-6" />
               <span className="sr-only">Instagram Page</span>

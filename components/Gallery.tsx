@@ -42,7 +42,7 @@ const Gallery = ({ images }: GalleryProps) => {
           onClick={() => handleClick(index)}
         >
           <Image
-            className={`${index === current ? "border-2 border-cmsecondary" : ""}`}
+            className={`${index === current ? "border-cmaccent border-2" : ""}`}
             src={image.url}
             fill
             alt={`Carousel Bottom Image ${index + 1}`}

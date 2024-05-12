@@ -71,6 +71,6 @@
     @apply border-border;
   }
   body {
-    @apply bg-cmbackground text-cmprimary;
+    @apply bg-cmsecondary text-cmprimary;
   }
 }

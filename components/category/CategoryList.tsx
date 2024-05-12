@@ -4,8 +4,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import CategoryCard from "./CategoryCard";
 import CustomTitle from "../CustomTitle";
@@ -28,14 +26,12 @@ const CategoryList = ({ data }: CategoryListProps) => {
           {data.map((item) => (
             <CarouselItem
               key={item.id}
-              className="basis-[40%] sm:basis-[27%] md:basis-[22%] lg:basis-1/6"
+              className="basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6"
             >
               <CategoryCard category={item} />
             </CarouselItem>
           ))}
         </CarouselContent>
-        {/* <CarouselPrevious />
-          <CarouselNext /> */}
       </Carousel>
     </div>
   );

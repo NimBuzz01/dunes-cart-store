@@ -19,10 +19,10 @@ const config = {
     },
     extend: {
       colors: {
-        cmprimary: "#323643",
-        cmsecondary: "#5755FE",
+        cmprimary: "#0F172A",
+        cmsecondary: "#F8FAFC",
+        cmaccent: "#5755FE",
         cmneutral: "#606470",
-        cmbackground: "#FFFFFF",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

@@ -10,7 +10,7 @@ interface CustomTitleProps {
 const CustomTitle = ({ text1, text2, className }: CustomTitleProps) => {
   return (
     <h1 className={cn(`text-xl font-bold sm:text-2xl md:text-3xl`, className)}>
-      {text1} <span className="text-cmsecondary">{text2}</span>
+      {text1} <span className="text-cmaccent">{text2}</span>
     </h1>
   );
 };

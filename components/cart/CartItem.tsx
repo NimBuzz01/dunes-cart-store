@@ -21,7 +21,7 @@ const CartItem = ({ item }: CartItemProps) => {
   };
   return (
     <li className="relative flex flex-col border-b py-6 sm:flex-row">
-      <div className="relative aspect-square w-24 overflow-hidden rounded-md bg-cmsecondary/10 sm:h-48 sm:w-48">
+      <div className="bg-cmaccent/10 relative aspect-square w-24 overflow-hidden rounded-md sm:h-48 sm:w-48">
         <Image
           alt="Image"
           src={item.product.images?.[0]?.url}
@@ -41,7 +41,7 @@ const CartItem = ({ item }: CartItemProps) => {
           <div className="flex h-full w-full flex-col md:pr-3">
             <Link
               href={`/products/${item.product.id}`}
-              className="w-full text-lg font-semibold transition-all hover:text-cmsecondary sm:mb-1 sm:text-xl"
+              className="hover:text-cmaccent w-full text-lg font-semibold transition-all sm:mb-1 sm:text-xl"
             >
               {item?.product.name}
             </Link>

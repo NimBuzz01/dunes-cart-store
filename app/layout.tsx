@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="scroll-smooth scrollbar-thin scrollbar-track-cmbackground scrollbar-thumb-cmprimary"
+      className="scroll-smooth scrollbar-thin scrollbar-track-cmsecondary scrollbar-thumb-cmprimary"
     >
       <body className={archivo.className}>
         <ModalPreview />

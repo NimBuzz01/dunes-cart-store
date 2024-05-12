@@ -11,7 +11,7 @@ interface ModalProps {
 const Modal = ({ isOpen, onClose, children }: ModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-h-screen w-full max-w-3xl overflow-hidden overflow-y-auto scrollbar-thin scrollbar-track-cmbackground scrollbar-thumb-cmprimary">
+      <DialogContent className="scrollbar-track-cmaccent max-h-screen w-full max-w-3xl overflow-hidden overflow-y-auto scrollbar-thin scrollbar-thumb-cmprimary">
         <div className="relative flex w-full items-center overflow-hidden">
           {children}
         </div>

@@ -31,7 +31,7 @@ const NavMenuMobile = () => {
               <Link
                 key={index}
                 href={link.href}
-                className="text-lg font-semibold transition-all hover:text-cmsecondary"
+                className="hover:text-cmaccent text-lg font-semibold transition-all"
               >
                 {link.name}
               </Link>

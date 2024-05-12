@@ -42,7 +42,7 @@ const NavBarCart = () => {
         <SheetHeader className="text-xl font-semibold">
           <SheetTitle>My Cart</SheetTitle>
         </SheetHeader>
-        <div className="flex flex-col gap-2 overflow-y-auto pb-2 scrollbar-thin scrollbar-track-cmbackground scrollbar-thumb-cmprimary">
+        <div className="flex flex-col gap-2 overflow-y-auto pb-2 scrollbar-thin scrollbar-track-cmsecondary scrollbar-thumb-cmprimary">
           {cart.items.length === 0 ? (
             <p>Cart Empty</p>
           ) : (

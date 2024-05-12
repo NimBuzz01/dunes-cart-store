@@ -6,12 +6,12 @@ import Autoplay from "embla-carousel-autoplay";
 import { ICollection } from "@/lib/types";
 
 interface HeroBannerProps {
-  banners: ICollection[];
+  collections: ICollection[];
 }
 
-const HeroBanner = ({ banners }: HeroBannerProps) => {
+const HeroBanner = ({ collections }: HeroBannerProps) => {
   return (
-    <div className="relative bg-cmsecondary/10">
+    <div className="relative bg-cmaccent/10">
       {/* <Image src="/hero-bg.webp" fill alt="banner-bg" /> */}
       <div className="container lg:py-16">
         <Carousel
@@ -28,9 +28,9 @@ const HeroBanner = ({ banners }: HeroBannerProps) => {
           ]}
         >
           <CarouselContent>
-            {banners.map((banner) => (
-              <CarouselItem key={banner.id}>
-                <HeroBannerContent key={banner.id} banner={banner} />
+            {collections.map((item) => (
+              <CarouselItem key={item.id}>
+                <HeroBannerContent key={item.id} banner={item} />
               </CarouselItem>
             ))}
           </CarouselContent>

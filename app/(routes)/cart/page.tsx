@@ -33,7 +33,7 @@ const CartPage = () => {
                 ))}
               </ul>
               <Link
-                className="mt-10 flex items-center gap-2 font-semibold transition-all hover:text-cmsecondary"
+                className="hover:text-cmaccent mt-10 flex items-center gap-2 font-semibold transition-all"
                 href={"/products"}
               >
                 <ArrowLeft />

@@ -4,12 +4,12 @@ import React from "react";
 
 const NavLinks = () => {
   return (
-    <div className="text-cmneutral hidden space-x-10 md:block">
+    <div className="hidden space-x-10 text-cmneutral md:block">
       {navLinks.map((link) => (
         <Link
           key={link.name}
           href={link.href}
-          className="hover:text-cmsecondary text-sm transition-all lg:text-base"
+          className="hover:text-cmaccent text-sm transition-all lg:text-base"
         >
           {link.name}
         </Link>

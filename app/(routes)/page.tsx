@@ -9,14 +9,14 @@ import FeaturedList from "@/components/product/FeaturedList";
 export default async function HomePage() {
   const products = await getProducts({ isFeatured: true });
   const categories = await getCategories();
-  const banners = await getCollections();
+  const collections = await getCollections();
 
   return (
     <>
-      <HeroBanner banners={banners} />
+      <HeroBanner collections={collections} />
       <div className="space-y-10 px-3 py-8 sm:container sm:space-y-16 sm:py-16">
-        {categories && <CategoryList data={categories} />}
-        {products && <FeaturedList data={products} />}
+        <CategoryList data={categories} />
+        <FeaturedList data={products} />
         <NewArrivals data={products} />
         <DealsBanner />
       </div>

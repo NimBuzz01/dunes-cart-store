@@ -4,7 +4,7 @@ import ServiceCard from "./ServiceCard";
 
 const Services = () => {
   return (
-    <div className="w-full bg-cmsecondary/10 py-24">
+    <div className="bg-cmaccent/10 w-full py-24">
       <div className="flex flex-wrap items-center justify-center gap-8 px-3 sm:container sm:px-0">
         {services.map((item, index) => (
           <ServiceCard
