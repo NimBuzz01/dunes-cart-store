@@ -41,7 +41,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
       onClick={handleClick}
       className="group w-full max-w-[20rem] cursor-pointer space-y-2"
     >
-      <div className="bg-cmaccent/10 relative aspect-square">
+      <div className="relative aspect-square bg-gradient-to-r from-cmaccent/10 to-cmaccent/30">
         <Image
           alt="image"
           src={product?.images?.[0]?.url}
@@ -51,7 +51,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
         <div className="absolute bottom-5 block w-full px-6 opacity-0 transition group-hover:opacity-100">
           <div className="flex justify-center gap-x-2">
             <Button
-              className="bg-cmaccent hover:bg-cmaccent/90 hidden transition-all hover:scale-105 sm:block"
+              className="hidden bg-cmaccent transition-all hover:scale-105 hover:bg-cmaccent/90 sm:block"
               onClick={onAddToCart}
             >
               Add To Cart

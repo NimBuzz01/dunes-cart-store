@@ -11,7 +11,7 @@ interface HeroBannerProps {
 
 const HeroBanner = ({ collections }: HeroBannerProps) => {
   return (
-    <div className="relative bg-cmaccent/10">
+    <div className="relative bg-gradient-to-b from-cmaccent/20 to-cmaccent/70 lg:bg-gradient-to-r">
       {/* <Image src="/hero-bg.webp" fill alt="banner-bg" /> */}
       <div className="container lg:py-16">
         <Carousel

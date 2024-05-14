@@ -10,8 +10,10 @@ interface ServiceCardProps {
 
 const ServiceCard = ({ title, description, image }: ServiceCardProps) => {
   return (
-    <Card className="my-1 flex h-64 w-96 flex-col items-center justify-center gap-3 rounded-none px-2.5 text-center shadow-xl transition-all sm:p-5">
-      <Image src={image} alt={title} height={60} width={80} />
+    <Card className="my-1 flex h-56 w-96 flex-col items-center justify-center gap-3 rounded-none px-2.5 text-center shadow-xl transition-all sm:h-64 sm:p-5">
+      <div className="relative aspect-square w-20">
+        <Image src={image} alt={title} fill objectFit="contain" />
+      </div>
       <p className="text-lg font-semibold text-cmneutral sm:text-xl">{title}</p>
       <p className="text-xs text-cmneutral sm:text-sm">{description}</p>
     </Card>

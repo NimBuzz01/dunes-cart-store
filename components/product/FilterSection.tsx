@@ -43,31 +43,15 @@ const FilterSection = ({
 }: FilterSectionProps) => {
   return (
     <div>
-      <ul className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
-        {categories.map((category) => (
-          <li key={category.id}>
-            <button
-              className={`${
-                selectedCategories.includes(category.id)
-                  ? "bg-cmaccent/10 text-cmaccent"
-                  : "text-cmneutral"
-              } rounded px-2 py-1 transition-all duration-200 hover:bg-gray-100 hover:text-gray-900`}
-              onClick={() => {
-                handleCategoryToggle(category.id);
-              }}
-            >
-              {category.name}
-            </button>
-          </li>
-        ))}
-      </ul>
-      <Accordion type="multiple">
-        {/* Price filter */}
+      <Accordion
+        type="multiple"
+        defaultValue={["categories", "price"]}
+        className="border-none"
+      >
         <AccordionItem value="price">
           <AccordionTrigger className="py-3 text-sm text-cmneutral hover:text-cmprimary">
             <span className="font-medium text-cmprimary">Price</span>
           </AccordionTrigger>
-
           <AccordionContent className="animate-none pt-6">
             <ul className="space-y-4">
               {PRICE_FILTERS.options.map((option, index) => (
@@ -94,7 +78,7 @@ const FilterSection = ({
               ))}
               <li className="flex flex-col justify-center gap-2">
                 <div className="flex justify-between">
-                  <p className="font-medium">Price</p>
+                  <p className="font-medium">Custom Price</p>
                   <div>
                     {priceRange[0]} LKR - {priceRange[1]} LKR
                   </div>
@@ -113,6 +97,31 @@ const FilterSection = ({
                   step={5}
                 />
               </li>
+            </ul>
+          </AccordionContent>
+        </AccordionItem>
+        <AccordionItem value="categories" className="mt-4">
+          <AccordionTrigger className="py-3 text-sm text-cmneutral hover:text-cmprimary">
+            <span className="font-medium text-cmprimary">Categories</span>
+          </AccordionTrigger>
+          <AccordionContent className="animate-none pt-6">
+            <ul className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
+              {categories.map((category) => (
+                <li key={category.id}>
+                  <button
+                    className={`${
+                      selectedCategories.includes(category.id)
+                        ? "bg-cmaccent/10 text-cmaccent"
+                        : "text-cmneutral"
+                    } rounded px-2 py-1 transition-all duration-200 `}
+                    onClick={() => {
+                      handleCategoryToggle(category.id);
+                    }}
+                  >
+                    {category.name}
+                  </button>
+                </li>
+              ))}
             </ul>
           </AccordionContent>
         </AccordionItem>

@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const DealsBanner = () => {
   return (
-    <div className="flex w-full flex-col items-center gap-2 bg-red-200 px-4 pt-10 md:pt-16 lg:flex-row lg:justify-between lg:px-16 lg:py-0">
+    <div className="flex w-full flex-col items-center gap-2 bg-gradient-to-b from-red-200 to-red-400 px-4 pt-10 md:pt-16 lg:flex-row lg:justify-between lg:bg-gradient-to-r lg:px-16 lg:py-0">
       <div className="w-full max-w-2xl space-y-6">
         <p className="flex  items-center gap-2 text-sm font-semibold text-red-500 sm:text-base md:text-lg ">
           <BadgePercent className="h-4 w-4 rounded-full text-red-500 md:h-6 md:w-6" />

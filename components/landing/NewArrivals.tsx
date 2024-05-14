@@ -50,7 +50,7 @@ export default NewArrivals;
 
 const BigCard = ({ product }: { product: IProduct }) => {
   return (
-    <Card className="flex w-full flex-col items-center bg-cmaccent/10 p-8">
+    <Card className="flex w-full flex-col items-center bg-gradient-to-r from-cmaccent/10 to-cmaccent/30 p-8">
       <h1 className="mb-5 self-start text-4xl font-semibold">{product.name}</h1>
       <div className="w-44 self-start">
         <MainButton text="Shop Now" href={`/products/${product.id}`} />
@@ -73,7 +73,7 @@ const SideCards = ({ product }: { product: IProduct }) => {
       {product ? (
         <Link href={`/products/${product.id}`}>
           <Card className="flex h-28 w-full items-center gap-2 rounded-none sm:h-48 sm:gap-10 lg:h-full">
-            <div className="relative aspect-square h-full bg-cmaccent/10">
+            <div className="relative aspect-square h-full bg-gradient-to-r from-cmaccent/10 to-cmaccent/30">
               <Image
                 alt="image"
                 src={product.images[0].url}

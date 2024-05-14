@@ -1,5 +1,6 @@
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -7,9 +8,10 @@ import {
 } from "@/components/ui/dialog";
 import { ICategory } from "@/lib/types";
 import React from "react";
-import { Filter } from "lucide-react";
+import { Filter, X } from "lucide-react";
 import { Button } from "../ui/button";
 import FilterSection from "./FilterSection";
+import IconButton from "../IconButton";
 
 interface FilterModalProps {
   categories: ICategory[];
@@ -32,22 +34,30 @@ const FilterModal = ({
         <Button
           size="icon"
           variant="outline"
-          className="ml-2 border-none lg:hidden"
+          className="ml-2 border-none bg-cmsecondary lg:hidden"
         >
           <Filter className="h-5 w-5 text-cmneutral" />
         </Button>
       </DialogTrigger>
       <DialogContent className="max-h-screen overflow-hidden overflow-y-auto scrollbar-thin">
-        <DialogHeader>
-          <DialogTitle>Filters</DialogTitle>
-        </DialogHeader>
-        <FilterSection
-          categories={categories}
-          selectedCategories={selectedCategories}
-          handleCategoryToggle={handleCategoryToggle}
-          setPriceRange={setPriceRange}
-          priceRange={priceRange}
-        />
+        <div className="relative">
+          <DialogHeader>
+            <DialogTitle>Filters</DialogTitle>
+          </DialogHeader>
+          <DialogClose>
+            <IconButton
+              className="absolute right-0 top-0"
+              icon={<X size={20} className="text-red-500" />}
+            />
+          </DialogClose>
+          <FilterSection
+            categories={categories}
+            selectedCategories={selectedCategories}
+            handleCategoryToggle={handleCategoryToggle}
+            setPriceRange={setPriceRange}
+            priceRange={priceRange}
+          />
+        </div>
       </DialogContent>
     </Dialog>
   );
