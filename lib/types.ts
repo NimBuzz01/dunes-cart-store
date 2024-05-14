@@ -37,3 +37,10 @@ export interface IOrderItem {
   product: IProduct;
   quantity: number;
 }
+
+export interface ContactEmailTypes {
+  message: string;
+  name: string;
+  email: string;
+  phone: string;
+}

@@ -52,7 +52,7 @@ const FilterSection = ({
           <AccordionTrigger className="py-3 text-sm text-cmneutral hover:text-cmprimary">
             <span className="font-medium text-cmprimary">Price</span>
           </AccordionTrigger>
-          <AccordionContent className="animate-none pt-6">
+          <AccordionContent className="pt-6">
             <ul className="space-y-4">
               {PRICE_FILTERS.options.map((option, index) => (
                 <li key={option.label} className="flex items-center">
@@ -104,8 +104,8 @@ const FilterSection = ({
           <AccordionTrigger className="py-3 text-sm text-cmneutral hover:text-cmprimary">
             <span className="font-medium text-cmprimary">Categories</span>
           </AccordionTrigger>
-          <AccordionContent className="animate-none pt-6">
-            <ul className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
+          <AccordionContent className="pt-6">
+            <ul className="space-y-4 border-gray-200 text-sm font-medium text-gray-900">
               {categories.map((category) => (
                 <li key={category.id}>
                   <button

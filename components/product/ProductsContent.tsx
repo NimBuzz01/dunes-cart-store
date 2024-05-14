@@ -1,35 +1,20 @@
 "use client";
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
-import { ICategory, IProduct } from "@/lib/types";
+import { IProduct } from "@/lib/types";
 import React, { useEffect, useState } from "react";
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
-import { ChevronDown, Filter } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import ProductCard from "./ProductCard";
 import ProductSkeleton from "./ProductSkeleton";
 import EmptyState from "./EmptyState";
-import { Button } from "../ui/button";
 import CustomTitle from "../CustomTitle";
 import FilterModal from "./FilterModal";
 import FilterSection from "./FilterSection";
+import useStore from "@/hooks/useStore";
 
 const SORT_OPTIONS = [
   { name: "None", value: "none" },
@@ -37,12 +22,8 @@ const SORT_OPTIONS = [
   { name: "Price: High to Low", value: "price-desc" },
 ] as const;
 
-interface ProductsContentProps {
-  products: IProduct[];
-  categories: ICategory[];
-}
-
-const ProductsContent = ({ products, categories }: ProductsContentProps) => {
+const ProductsContent = () => {
+  const { products, categories } = useStore();
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(products);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
@@ -95,10 +76,9 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
   }, [selectedCategories, priceRange, sort]);
 
   return (
-    <main className="">
-      <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-10 sm:pt-16">
+    <main className="px-3 sm:container">
+      <div className="flex items-baseline justify-between border-b pb-6 pt-10 sm:pt-16">
         <CustomTitle text1="Browse All" text2="Products" />
-
         <div className="flex items-center">
           <DropdownMenu>
             <DropdownMenuTrigger className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -111,7 +91,7 @@ const ProductsContent = ({ products, categories }: ProductsContentProps) => {
                 <button
                   key={option.name}
                   className={cn("block w-full px-4 py-2 text-left text-sm", {
-                    "bg-cmaccent/10 text-cmaccent rounded-md":
+                    "rounded-md bg-cmaccent/10 text-cmaccent":
                       option.value === sort,
                     "text-cmneutral": option.value !== sort,
                   })}
