@@ -15,7 +15,7 @@ const CartEmpty = () => {
 
       <h1 className="text-xl font-bold sm:text-2xl">Your Cart is Empty</h1>
       <p className="text-sm text-cmneutral sm:text-base">
-        Looks like you haven't made your choice yet...
+        Looks like you haven&apos;t made your choice yet...
       </p>
     </div>
   );
