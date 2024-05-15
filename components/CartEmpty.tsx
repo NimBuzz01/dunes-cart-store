@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const CartEmpty = () => {
   return (
-    <div className="flex h-full w-full flex-col items-center justify-center gap-4">
+    <div className="flex h-full min-h-[300px] w-full flex-col items-center justify-center gap-4">
       <div className="relative aspect-square w-28 sm:w-32">
         <Image
           src="/icons/empty-cart.png"

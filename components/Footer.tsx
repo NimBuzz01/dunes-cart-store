@@ -12,7 +12,7 @@ const Footer = () => {
       {collections.length > 0 && (
         <footer className="border-t bg-cmprimary text-cmsecondary">
           <div className="container mx-auto w-full p-4">
-            <div className="py-6 md:flex md:justify-between">
+            <div className="min-h-[250px] py-6 md:flex md:justify-between ">
               <div className="mb-10 space-y-8 md:mb-0">
                 <Link href="/" className="flex">
                   <Image
@@ -50,11 +50,6 @@ const Footer = () => {
                     <li className="mb-4">
                       <a href="/products" className="hover:text-cmaccent">
                         Products
-                      </a>
-                    </li>
-                    <li className="mb-4">
-                      <a href="/about" className="hover:text-cmaccent">
-                        About Us
                       </a>
                     </li>
                     <li className="mb-4">

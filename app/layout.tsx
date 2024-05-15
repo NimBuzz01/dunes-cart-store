@@ -5,6 +5,7 @@ import { Archivo } from "next/font/google";
 import ModalPreview from "@/providers/modalPreview";
 import ToastProvider from "@/providers/toastProvider";
 import NavBar from "@/components/navbar/NavBar";
+import GoUpButton from "@/components/GoUpButton";
 
 const archivo = Archivo({
   subsets: ["latin"],
@@ -31,6 +32,7 @@ export default function RootLayout({
       <body className={archivo.className}>
         <ModalPreview />
         <ToastProvider />
+        <GoUpButton />
         <NavBar />
         <main className="min-h-screen">{children}</main>
         <Footer />

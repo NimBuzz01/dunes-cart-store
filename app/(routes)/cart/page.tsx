@@ -12,7 +12,12 @@ import CartEmpty from "@/components/CartEmpty";
 const CartPage = () => {
   const [isMounted, setIsMounted] = useState(false);
   const cart = useCart();
+
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
     setIsMounted(true);
   }, []);
   if (!isMounted) return null;
