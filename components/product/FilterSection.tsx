@@ -32,6 +32,7 @@ interface FilterSectionProps {
   handleCategoryToggle: (categoryId: string) => void;
   setPriceRange: (range: [number, number]) => void;
   priceRange: [number, number];
+  highestPrice: number;
 }
 
 const FilterSection = ({
@@ -40,6 +41,7 @@ const FilterSection = ({
   handleCategoryToggle,
   setPriceRange,
   priceRange,
+  highestPrice,
 }: FilterSectionProps) => {
   return (
     <div className="sticky top-[10%]">
@@ -93,7 +95,7 @@ const FilterSection = ({
                   value={priceRange}
                   min={0}
                   defaultValue={priceRange}
-                  max={100000}
+                  max={highestPrice}
                   step={5}
                 />
               </li>

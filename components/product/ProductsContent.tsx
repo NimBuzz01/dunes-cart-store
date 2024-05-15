@@ -25,10 +25,16 @@ const SORT_OPTIONS = [
 
 const ProductsContent = () => {
   const { products, categories } = useStore();
+  const highestPrice = Math.max(
+    ...products.map((product) => parseInt(product.price)),
+  );
   const [filteredProducts, setFilteredProducts] =
     useState<IProduct[]>(products);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 100000]);
+  const [priceRange, setPriceRange] = useState<[number, number]>([
+    0,
+    highestPrice,
+  ]);
   const [sort, setSort] = useState<"none" | "price-asc" | "price-desc">("none");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 12;
@@ -125,6 +131,7 @@ const ProductsContent = () => {
             handleCategoryToggle={handleCategoryToggle}
             setPriceRange={setPriceRange}
             priceRange={priceRange}
+            highestPrice={highestPrice}
           />
         </div>
       </div>
@@ -139,6 +146,7 @@ const ProductsContent = () => {
               handleCategoryToggle={handleCategoryToggle}
               setPriceRange={setPriceRange}
               priceRange={priceRange}
+              highestPrice={highestPrice}
             />
           </div>
           {/* Product grid */}

@@ -19,6 +19,7 @@ interface FilterModalProps {
   handleCategoryToggle: (categoryId: string) => void;
   setPriceRange: (range: [number, number]) => void;
   priceRange: [number, number];
+  highestPrice: number;
 }
 
 const FilterModal = ({
@@ -27,6 +28,7 @@ const FilterModal = ({
   handleCategoryToggle,
   setPriceRange,
   priceRange,
+  highestPrice,
 }: FilterModalProps) => {
   return (
     <Dialog>
@@ -56,6 +58,7 @@ const FilterModal = ({
             handleCategoryToggle={handleCategoryToggle}
             setPriceRange={setPriceRange}
             priceRange={priceRange}
+            highestPrice={highestPrice}
           />
         </div>
       </DialogContent>
