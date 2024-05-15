@@ -125,7 +125,7 @@ const Footer = () => {
                 Web Concept by{" "}
                 <a
                   href={developerInfo.portfolioLink}
-                  className="text-cmaccent transition-all hover:text-cmaccent/80"
+                  className="text-blue-500 transition-all hover:text-cmaccent/80"
                 >
                   {developerInfo.name}
                 </a>

@@ -7,6 +7,7 @@ import useCart from "@/hooks/useCart";
 import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import CartEmpty from "@/components/CartEmpty";
 
 const CartPage = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -22,9 +23,7 @@ const CartPage = () => {
       <div className="mt-6 gap-x-12 sm:mt-12 lg:grid lg:grid-cols-12 lg:items-start">
         <div className="lg:col-span-8">
           {cart.items?.length === 0 ? (
-            <>
-              <p className="text-cmneutral">No items in the cart</p>
-            </>
+            <CartEmpty />
           ) : (
             <>
               <ul>
@@ -33,7 +32,7 @@ const CartPage = () => {
                 ))}
               </ul>
               <Link
-                className="hover:text-cmaccent mt-10 flex items-center gap-2 font-semibold transition-all"
+                className="mt-10 flex items-center gap-2 font-semibold transition-all hover:text-cmaccent"
                 href={"/products"}
               >
                 <ArrowLeft />

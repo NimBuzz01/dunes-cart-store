@@ -13,6 +13,8 @@ import { Button } from "../ui/button";
 import MainButton from "../MainButton";
 import Currency from "../Currency";
 import CartItem from "./CartItem";
+import Image from "next/image";
+import CartEmpty from "../CartEmpty";
 
 const NavBarCart = () => {
   const cart = useCart();
@@ -40,9 +42,9 @@ const NavBarCart = () => {
         <SheetHeader className="text-xl font-semibold">
           <SheetTitle>My Cart</SheetTitle>
         </SheetHeader>
-        <div className="flex flex-col gap-2 overflow-y-auto pb-2 scrollbar-thin scrollbar-track-cmsecondary scrollbar-thumb-cmprimary">
+        <div className="flex h-full flex-col gap-2 overflow-y-auto pb-2 scrollbar-thin scrollbar-track-cmsecondary scrollbar-thumb-cmprimary">
           {cart.items.length === 0 ? (
-            <p>Cart Empty</p>
+            <CartEmpty />
           ) : (
             cart.items.map((item) => (
               <CartItem item={item} key={item.product.id} />
