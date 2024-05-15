@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 const Preloader = ({ className }: { className?: string }) => {
   return (
     <Lottie
-      className={cn("h-96 w-96", className)}
+      className={cn("h-72 w-72 sm:h-96 sm:w-96", className)}
       animationData={preloader}
       loop={true}
     />
