@@ -13,7 +13,7 @@ interface ProductListProps {
 }
 
 const NewArrivals = ({ data }: ProductListProps) => {
-  const newArrivals = data.slice(data.length - 4);
+  const newArrivals = data.slice(data.length - 3);
 
   return (
     <div className="space-y-4">
@@ -22,22 +22,12 @@ const NewArrivals = ({ data }: ProductListProps) => {
         <MainButton text="View All Products" href={`/products`} />
       </div>
       {newArrivals.length > 0 ? (
-        <div className="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:grid-rows-3 lg:gap-4">
-          <div className="hidden lg:row-span-3 lg:block">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:grid-rows-2 lg:gap-4">
+          <div className="sm:col-span-2 lg:row-span-2 lg:block">
             <BigCard product={newArrivals[0]} />
           </div>
-          <div className="lg:hidden">
-            <SideCards product={newArrivals[0]} />
-          </div>
-          <div>
-            <SideCards product={newArrivals[1]} />
-          </div>
-          <div className="lg:col-start-2">
-            <SideCards product={newArrivals[2]} />
-          </div>
-          <div className="lg:col-start-2 lg:row-start-3">
-            <SideCards product={newArrivals[3]} />
-          </div>
+          <SideCards product={newArrivals[1]} />
+          <SideCards product={newArrivals[2]} />
         </div>
       ) : (
         <NoResults />
@@ -50,18 +40,24 @@ export default NewArrivals;
 
 const BigCard = ({ product }: { product: IProduct }) => {
   return (
-    <Card className="flex w-full flex-col items-center bg-gradient-to-r from-cmaccent/10 to-cmaccent/30 p-8">
-      <h1 className="mb-5 self-start text-4xl font-semibold">{product.name}</h1>
-      <div className="w-44 self-start">
-        <MainButton text="Shop Now" href={`/products/${product.id}`} />
-      </div>
-      <div className="relative aspect-square w-full max-w-sm">
+    <Card className="flex min-h-[450px] flex-col bg-gradient-to-r from-cmaccent/10 to-cmaccent/30 md:flex-row">
+      <div className="relative aspect-square w-full max-w-md self-center lg:w-1/2">
         <Image
           alt="image"
           src={product.images[0].url}
           fill
-          className="aspect-square overflow-hidden object-cover"
+          className="aspect-square scale-90 overflow-hidden object-cover "
         />
+      </div>
+      <div className="item-center flex w-full flex-col justify-center px-5 pb-10 md:my-10 md:pb-0 lg:w-1/2">
+        <h1 className="mb-2 text-2xl font-semibold sm:mb-5">{product.name}</h1>
+        <p className="mb-5 text-sm text-cmneutral">{product.description}</p>
+        <div className="mb-5 text-lg sm:text-xl">
+          <Currency value={product.price} />
+        </div>
+        <div className="w-44 sm:mb-0">
+          <MainButton text="Shop Now" href={`/products/${product.id}`} />
+        </div>
       </div>
     </Card>
   );
@@ -72,8 +68,8 @@ const SideCards = ({ product }: { product: IProduct }) => {
     <>
       {product ? (
         <Link href={`/products/${product.id}`}>
-          <Card className="flex h-28 w-full items-center gap-2 rounded-none sm:h-48 sm:gap-10 lg:h-full">
-            <div className="relative aspect-square h-full bg-gradient-to-r from-cmaccent/10 to-cmaccent/30">
+          <Card className="relative flex h-56 w-full items-center gap-2 rounded-none bg-gradient-to-r from-cmaccent/10 to-cmaccent/30 sm:aspect-auto sm:gap-10 lg:h-full">
+            <div className="absolute bottom-0 right-0 aspect-square w-48">
               <Image
                 alt="image"
                 src={product.images[0].url}
@@ -81,14 +77,11 @@ const SideCards = ({ product }: { product: IProduct }) => {
                 className="aspect-square overflow-hidden object-cover"
               />
             </div>
-            <div className="flex flex-col">
-              <h1 className="text-sm font-semibold sm:text-base md:text-lg lg:text-xl">
+            <div className="absolute left-0 top-0 flex w-44 flex-col p-4">
+              <h1 className="mb-3 text-lg font-semibold sm:text-xl">
                 {product.name}
               </h1>
-              <p className="mb-5 text-xs text-cmneutral sm:text-sm">
-                {product.category.name}
-              </p>
-              <p className="text-sm font-semibold sm:text-base md:text-lg lg:text-xl">
+              <p className=" text-lg font-semibold text-cmneutral sm:text-xl">
                 <Currency value={product.price} />
               </p>
             </div>

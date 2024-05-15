@@ -109,29 +109,22 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t pt-3 sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-cmsecondary sm:text-center">
+          <p className="text-sm text-cmsecondary sm:text-center">
             © 2024{" "}
-            <a href="#" className="hover:text-cmaccent transition-all">
+            <a href="#" className="transition-all hover:text-cmaccent">
               Dunes Cart™
             </a>
             . All Rights Reserved.
-          </span>
-          <div className="mt-4 flex sm:mt-0 sm:justify-center">
+          </p>
+          <p className="mt-2 text-sm italic text-cmsecondary sm:mt-0 sm:text-center">
+            Web Concept by{" "}
             <a
-              href="#"
-              className="hover:text-cmaccent text-cmsecondary transition-all"
+              href={developerInfo.portfolioLink}
+              className="transition-all hover:text-cmaccent"
             >
-              <FacebookIcon className="h-6 w-6" />
-              <span className="sr-only">Facebook page</span>
+              {developerInfo.name}
             </a>
-            <a
-              href="#"
-              className="hover:text-cmaccent ms-5 text-cmsecondary transition-all"
-            >
-              <InstagramIcon className="h-6 w-6" />
-              <span className="sr-only">Instagram Page</span>
-            </a>
-          </div>
+          </p>
         </div>
       </div>
     </footer>
