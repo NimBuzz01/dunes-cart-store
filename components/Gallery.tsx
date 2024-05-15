@@ -33,6 +33,15 @@ const Gallery = ({ images }: GalleryProps) => {
     [images],
   );
 
+  const handleClick = (index: number) => {
+    if (!mainApi || !thumbnailApi) {
+      return;
+    }
+    thumbnailApi.scrollTo(index);
+    mainApi.scrollTo(index);
+    setCurrent(index);
+  };
+
   const thumbnailImages = useMemo(
     () =>
       images.map((image, index) => (
@@ -42,7 +51,7 @@ const Gallery = ({ images }: GalleryProps) => {
           onClick={() => handleClick(index)}
         >
           <Image
-            className={`${index === current ? "border-cmaccent border-2" : ""}`}
+            className={`${index === current ? "border-2 border-cmaccent" : ""}`}
             src={image.url}
             fill
             alt={`Carousel Bottom Image ${index + 1}`}
@@ -78,15 +87,6 @@ const Gallery = ({ images }: GalleryProps) => {
       thumbnailApi.off("select", handleBottomSelect);
     };
   }, [mainApi, thumbnailApi]);
-
-  const handleClick = (index: number) => {
-    if (!mainApi || !thumbnailApi) {
-      return;
-    }
-    thumbnailApi.scrollTo(index);
-    mainApi.scrollTo(index);
-    setCurrent(index);
-  };
 
   return (
     <div className="max-w-xl">

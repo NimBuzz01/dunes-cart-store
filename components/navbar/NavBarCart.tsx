@@ -23,18 +23,18 @@ const NavBarCart = () => {
 
   return (
     <Sheet>
-      <SheetTrigger className="relative text-2xl transition-all">
+      <SheetTrigger asChild className="relative text-2xl transition-all">
         <Button size="icon" className="rounded-full" variant="ghost">
           <AiOutlineShoppingCart className="h-6 w-6 text-cmneutral" />
+          {cart.items.length > -1 && (
+            <span
+              key={cart.items.length}
+              className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 px-1 text-xs text-white"
+            >
+              {cart.items.length}
+            </span>
+          )}
         </Button>
-        {cart.items.length > -1 && (
-          <span
-            key={cart.items.length}
-            className="absolute -right-1 -top-1 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 px-1 text-xs text-white"
-          >
-            {cart.items.length}
-          </span>
-        )}
       </SheetTrigger>
       <SheetContent className="z-[1000] flex w-full flex-col px-2 sm:max-w-[450px] sm:px-4">
         <SheetHeader className="text-xl font-semibold">

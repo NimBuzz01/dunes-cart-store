@@ -25,6 +25,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className="scroll-smooth scrollbar-thin scrollbar-track-cmsecondary scrollbar-thumb-cmprimary"
     >
       <body className={archivo.className}>

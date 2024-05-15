@@ -31,7 +31,7 @@ const SearchModal = () => {
     } else {
       setFilteredProducts([]);
     }
-  }, [search]);
+  }, [search, products]);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>

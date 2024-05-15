@@ -42,7 +42,7 @@ const FilterSection = ({
   priceRange,
 }: FilterSectionProps) => {
   return (
-    <div>
+    <div className="sticky top-[10%]">
       <Accordion
         type="multiple"
         defaultValue={["categories", "price"]}

@@ -37,7 +37,7 @@ const ContactInfo = () => {
         <Link href="#">
           <Button
             size="icon"
-            className="rounded-full bg-[#405DE6] text-cmsecondary transition-all hover:bg-[#405DE6]/90 "
+            className="rounded-full bg-[#405DE6] text-cmsecondary transition-all hover:bg-[#405DE6]/80 "
           >
             <FacebookIcon />
             <span className="sr-only">Facebook page</span>
@@ -46,7 +46,7 @@ const ContactInfo = () => {
         <Link href="#">
           <Button
             size="icon"
-            className="rounded-full bg-[#E1306C] text-cmsecondary transition-all hover:bg-[#E1306C]/90 "
+            className="rounded-full bg-[#E1306C] text-cmsecondary transition-all hover:bg-[#E1306C]/80 "
           >
             <InstagramIcon />
             <span className="sr-only">Facebook page</span>
@@ -55,7 +55,7 @@ const ContactInfo = () => {
         <Link href="#">
           <Button
             size="icon"
-            className="rounded-full bg-[#1DA1F2] text-cmsecondary transition-all hover:bg-[#1DA1F2]/90 "
+            className="rounded-full bg-[#1DA1F2] text-cmsecondary transition-all hover:bg-[#1DA1F2]/80 "
           >
             <TwitterIcon />
             <span className="sr-only">Twitter page</span>

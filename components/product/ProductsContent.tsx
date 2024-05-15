@@ -9,12 +9,13 @@ import {
 import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import ProductCard from "./ProductCard";
-import ProductSkeleton from "./ProductSkeleton";
 import EmptyState from "./EmptyState";
 import CustomTitle from "../CustomTitle";
 import FilterModal from "./FilterModal";
 import FilterSection from "./FilterSection";
 import useStore from "@/hooks/useStore";
+import ProductSkeleton from "../skeleton/ProductSkeleton";
+import ProductsPagination from "./ProductsPagination";
 
 const SORT_OPTIONS = [
   { name: "None", value: "none" },
@@ -29,6 +30,8 @@ const ProductsContent = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 100000]);
   const [sort, setSort] = useState<"none" | "price-asc" | "price-desc">("none");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
 
   const handleCategoryToggle = (categoryId: string) => {
     if (selectedCategories.includes(categoryId)) {
@@ -65,6 +68,17 @@ const ProductsContent = () => {
 
     return sortedProducts;
   };
+
+  // Calculate total number of pages
+  const totalPages = Math.ceil(filteredProducts.length / itemsPerPage);
+
+  // Slice products for the current page
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = filteredProducts.slice(
+    indexOfFirstItem,
+    indexOfLastItem,
+  );
 
   const onSubmit = () => {
     const updatedFilteredProducts = applyFilters(products);
@@ -118,7 +132,7 @@ const ProductsContent = () => {
       <section className="pb-24 pt-6">
         <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
           {/* Filters */}
-          <div className="hidden lg:block">
+          <div className="hidden h-full lg:block">
             <FilterSection
               categories={categories}
               selectedCategories={selectedCategories}
@@ -127,13 +141,12 @@ const ProductsContent = () => {
               priceRange={priceRange}
             />
           </div>
-
           {/* Product grid */}
           <ul className="grid grid-cols-2 place-items-start gap-2 sm:gap-8 md:grid-cols-3 lg:col-span-3">
-            {filteredProducts && filteredProducts.length === 0 ? (
+            {currentProducts && currentProducts.length === 0 ? (
               <EmptyState />
-            ) : filteredProducts ? (
-              filteredProducts.map((product) => (
+            ) : currentProducts ? (
+              currentProducts.map((product) => (
                 <ProductCard product={product} key={product.id} />
               ))
             ) : (
@@ -142,6 +155,14 @@ const ProductsContent = () => {
                 .map((_, i) => <ProductSkeleton key={i} />)
             )}
           </ul>
+        </div>
+        <div className="mt-10 sm:mt-16">
+          <ProductsPagination
+            totalItems={products.length}
+            itemsPerPage={itemsPerPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </div>
       </section>
     </main>

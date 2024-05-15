@@ -12,7 +12,8 @@ import useStore from "@/hooks/useStore";
 
 const NavBar = () => {
   const [isMounted, setIsMounted] = useState(false);
-  const { setCollections, setCategories, setProducts } = useStore();
+  const { collections, setCollections, setCategories, setProducts } =
+    useStore();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,24 +26,33 @@ const NavBar = () => {
     };
     setIsMounted(true);
     fetchData();
-  }, []);
+  }, [setProducts, setCategories, setCollections]);
 
   if (!isMounted) return null;
 
   return (
-    <div className="sticky top-0 z-50 border-b bg-white shadow-md">
-      <div className="relative flex h-16 items-center justify-between px-4 sm:container">
-        <Link href="/">
-          <Image src="/logo.png" alt="Dunes Cart Logo" width={140} height={0} />
-        </Link>
-        <NavLinks />
-        <div>
-          <NavMenuMobile />
-          <NavBarSearch />
-          <NavBarCart />
+    <>
+      {collections.length > 0 && (
+        <div className="sticky top-0 z-50 border-b bg-white shadow-md">
+          <div className="relative flex h-16 items-center justify-between px-4 sm:container">
+            <Link href="/">
+              <Image
+                src="/logo.png"
+                alt="Dunes Cart Logo"
+                width={140}
+                height={0}
+              />
+            </Link>
+            <NavLinks />
+            <div>
+              <NavMenuMobile />
+              <NavBarSearch />
+              <NavBarCart />
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

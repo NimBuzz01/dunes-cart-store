@@ -7,6 +7,7 @@ import { Card } from "../ui/card";
 import Link from "next/link";
 import Currency from "../Currency";
 import CustomTitle from "../CustomTitle";
+import NewArrivalsSkeleton from "../skeleton/NewArrivalsSkeleton";
 
 interface ProductListProps {
   data: IProduct[];
@@ -30,7 +31,7 @@ const NewArrivals = ({ data }: ProductListProps) => {
           <SideCards product={newArrivals[2]} />
         </div>
       ) : (
-        <NoResults />
+        <NewArrivalsSkeleton />
       )}
     </div>
   );
@@ -40,7 +41,7 @@ export default NewArrivals;
 
 const BigCard = ({ product }: { product: IProduct }) => {
   return (
-    <Card className="flex min-h-[450px] flex-col bg-gradient-to-r from-cmaccent/10 to-cmaccent/30 md:flex-row">
+    <Card className="flex min-h-[450px] flex-col bg-gradient-to-t from-cmaccent/10 to-cmaccent/30 md:flex-row md:bg-gradient-to-l">
       <div className="relative aspect-square w-full max-w-md self-center lg:w-1/2">
         <Image
           alt="image"
@@ -68,7 +69,7 @@ const SideCards = ({ product }: { product: IProduct }) => {
     <>
       {product ? (
         <Link href={`/products/${product.id}`}>
-          <Card className="relative flex h-56 w-full items-center gap-2 rounded-none bg-gradient-to-r from-cmaccent/10 to-cmaccent/30 sm:aspect-auto sm:gap-10 lg:h-full">
+          <Card className="relative flex h-56 w-full items-center gap-2 rounded-none bg-gradient-to-r from-cmaccent/10 to-cmaccent/30 transition-all hover:from-cmaccent/20 hover:to-cmaccent/40 sm:aspect-auto sm:gap-10 lg:h-full">
             <div className="absolute bottom-0 right-0 aspect-square w-48">
               <Image
                 alt="image"
@@ -81,9 +82,9 @@ const SideCards = ({ product }: { product: IProduct }) => {
               <h1 className="mb-3 text-lg font-semibold sm:text-xl">
                 {product.name}
               </h1>
-              <p className=" text-lg font-semibold text-cmneutral sm:text-xl">
+              <div className="text-lg font-semibold text-cmneutral sm:text-xl">
                 <Currency value={product.price} />
-              </p>
+              </div>
             </div>
           </Card>
         </Link>
