@@ -51,7 +51,9 @@ const BigCard = ({ product }: { product: IProduct }) => {
         />
       </div>
       <div className="item-center flex w-full flex-col justify-center px-5 pb-10 md:my-10 md:pb-0 lg:w-1/2">
-        <h1 className="mb-2 text-2xl font-semibold sm:mb-5">{product.name}</h1>
+        <h1 className="mb-2 text-2xl font-semibold sm:mb-5 sm:text-3xl">
+          {product.name}
+        </h1>
         <p className="mb-5 text-sm text-cmneutral">{product.description}</p>
         <div className="mb-5 text-lg sm:text-xl">
           <Currency value={product.price} />
